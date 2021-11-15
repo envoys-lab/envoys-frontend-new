@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Router } from 'react-router-dom'
+import { Route, Router, Switch } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import history from './routerHistory'
 import ResetCSS from './ResetCSS';
@@ -39,7 +39,14 @@ const App: React.FC = () => {
             <div style={{marginLeft: "2px", height: "100%", flex: "1 1 auto"}}>
               <Header active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
               
-              <Swap />
+              <Switch>
+                <Route path="/companies">
+                  <Swap />
+                </Route>
+                <Route path="/">
+                  l
+                </Route>
+              </Switch>
             </div>
           </div>
 

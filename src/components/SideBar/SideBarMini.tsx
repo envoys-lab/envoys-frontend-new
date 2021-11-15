@@ -27,7 +27,7 @@ const SideBarMini: React.FC = () => {
 
                 <StyledRowContainer>
                     <Row><Icon content="fa fa-user fa-fw" /></Row>
-                    <Row active={true}><Icon content="fa fa-wallet fa-fw" /></Row>
+                    <Row><Icon content="fa fa-wallet fa-fw" /></Row>
                     <Row><Icon content="fa fa-building fa-fw" /></Row>
                     <Row><Icon content="fa fa-sync fa-fw" /></Row>
                     <Row><Icon content="fa fa-coins fa-fw" /></Row>

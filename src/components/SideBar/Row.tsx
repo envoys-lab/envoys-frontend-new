@@ -1,9 +1,13 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components";
-import { useDispatch } from 'react-redux';
-import { AppDispatch, store } from "../../store/store";
-import { modalSetAction } from '../../store/modal/reducer';
-import ModalList, { Modals } from "../Modal/List";
+// import { useDispatch } from 'react-redux';
+// import { AppDispatch, store } from "../../store/store";
+// import { modalSetAction } from '../../store/modal/reducer';
+// import ModalList, { Modals } from "../Modal/List";
+import { Link } from "react-router-dom";
+import history from "routerHistory";
+import { useLocation } from 'react-router-dom';
+
 
 const StyledRowDefault = styled.div`
     display: flex;
@@ -21,6 +25,7 @@ const StyledRowNotDisabled = styled(StyledRowDefault)`
 
 const StyledRowDisabled = styled(StyledRowDefault)`
     opacity: 0.3;
+    cursor: default;
 `;
 
 
@@ -44,7 +49,10 @@ const TestElement: React.FC = () => {
     return <>Hello World</>
 }
 
-const Row: React.FC<{active?: boolean, disable?: boolean}> = ({children, active = false, disable = false}) => {
+const Row: React.FC<{disable?: boolean, to?: string}> = ({children, disable = false, to = undefined}) => {
+    const location = useLocation();
+    const active = to === location.pathname;
+
     if(disable && active) {
         throw Error("Row active and disable");
     }
@@ -56,16 +64,27 @@ const Row: React.FC<{active?: boolean, disable?: boolean}> = ({children, active 
         );
     
     
-    const dispatch = useDispatch<AppDispatch>();
+    // const dispatch = useDispatch<AppDispatch>();
     
-    const c = () => {
-        dispatch(modalSetAction(ModalList.SelectToken));
-    }
-    return (
-        <RowContainer onClick={c} className={disable? "" : "active"}>
+    // const c = () => {
+    //     dispatch(modalSetAction(ModalList.SelectToken));
+    // }
+
+    const nonLinkedcontext = (<RowContainer className={disable? "" : "active"}>
             {active && !disable ? <MarkActive /> : <MarkDefault />}
-            <span style={{opacity: disable ? "0.3" : "1"}}>{children}</span>
-        </RowContainer>
+            <span style={{opacity: disable ? "0.3" : "1"}}>
+                {children}
+            </span>
+        </RowContainer>);
+    
+    const linkedContext = (<Link to={to}>
+            {nonLinkedcontext}
+        </Link>);
+
+    return (
+        <>
+            {to ? linkedContext : nonLinkedcontext}
+        </>
     );
 }
 export default Row;
