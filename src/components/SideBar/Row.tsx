@@ -10,14 +10,21 @@ const StyledRowDefault = styled.div`
     height: 56px;
     align-items: center;
     justify-content: middle;
+`;
 
+const StyledRowNotDisabled = styled(StyledRowDefault)`
     :hover {
         background: rgba(0,0,0,0.1);
         cursor: pointer;
     }
 `;
 
-const StyledRowActive = styled(StyledRowDefault)`
+const StyledRowDisabled = styled(StyledRowDefault)`
+    opacity: 0.3;
+`;
+
+
+const StyledRowActive = styled(StyledRowNotDisabled)`
     color: #F48020;
 `;
 
@@ -37,17 +44,27 @@ const TestElement: React.FC = () => {
     return <>Hello World</>
 }
 
-const Row: React.FC<{active?: boolean}> = ({children, active = false}) => {
-    const RowContainer = !active ? StyledRowDefault : StyledRowActive;
+const Row: React.FC<{active?: boolean, disable?: boolean}> = ({children, active = false, disable = false}) => {
+    if(disable && active) {
+        throw Error("Row active and disable");
+    }
+    const RowContainer = disable ? 
+        StyledRowDisabled : 
+        (!active ? 
+            StyledRowNotDisabled : 
+            StyledRowActive
+        );
+    
+    
     const dispatch = useDispatch<AppDispatch>();
     
     const c = () => {
         dispatch(modalSetAction(ModalList.SelectToken));
     }
     return (
-        <RowContainer onClick={c}>
-            {active ? <MarkActive /> : <MarkDefault />}
-            {children}
+        <RowContainer onClick={c} className={disable? "" : "active"}>
+            {active && !disable ? <MarkActive /> : <MarkDefault />}
+            <span style={{opacity: disable ? "0.3" : "1"}}>{children}</span>
         </RowContainer>
     );
 }
