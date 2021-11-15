@@ -40,8 +40,8 @@ const StyledSideBarHiddenWrapper = styled.div`
 `;
 
 export const SideBarHiddenButton: React.FC<{active: boolean, setActive: React.Dispatch<React.SetStateAction<boolean>>}> = ({active, setActive}) => {
-    return <div onClick={() => setActive(!active)}>
-        ...
+    return <div onClick={() => setActive(!active)} style={{padding: "10px"}}>
+        <i className="fa fa-spinner"></i>
     </div>;
 }
 
