@@ -1,7 +1,7 @@
 import Icon from "components/Icon";
 import React, { useEffect, useState, useRef } from "react";
 import styled from 'styled-components';
-import FullContent from "./FullContent";
+import SideBarDesktopContent from "./SideBarDesktopContent";
 import useOutsideAlerter from "hooks/useOutsideAlerter";
 import logo from "../../logo.svg";
 import StyledLogo from "./StyledLogo";
@@ -94,7 +94,7 @@ const SideBarHidden: React.FC<{active: boolean, setActive: React.Dispatch<React.
             <StyledSideBarHiddenWrapper ref={wrapperRef} id="hidden-side-bar-wrapper">
                 <StyledSideBarHidden id="hidden-side-bar">
                     <StyledLogo src={logo} />
-                    <FullContent />
+                    <SideBarDesktopContent />
                     {!closing && <CloseButton />}
                 </StyledSideBarHidden>
             </StyledSideBarHiddenWrapper>}

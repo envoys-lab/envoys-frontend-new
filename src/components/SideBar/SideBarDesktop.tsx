@@ -1,5 +1,5 @@
 import React from "react";
-import FullContent from "./FullContent";
+import SideBarDesktopContent from "./SideBarDesktopContent";
 import styled from "styled-components";
 import logo from "../../logo.svg";
 import StyledLogo from "./StyledLogo";
@@ -18,7 +18,7 @@ const SideBarDesktop: React.FC = () => {
         <StyledSideBar>
             <StyledLogo src={logo} />
 
-            <FullContent />
+            <SideBarDesktopContent />
         </StyledSideBar>
     )
 }

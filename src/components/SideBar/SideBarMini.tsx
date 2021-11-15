@@ -4,6 +4,8 @@ import logo from "../../logo_mini.svg";
 import Row from "./Row";
 import Icon from "../Icon";
 import StyledLogo from "./StyledLogo";
+import sideBar from "sideBar";
+import SideBarMiniContent from "./SideBarMiniContent";
 
 const StyledSideBar = styled.div`
     background: white;
@@ -24,15 +26,7 @@ const SideBarMini: React.FC = () => {
         <>
             <StyledSideBar>
                 <StyledLogo src={logo} />
-
-                <StyledRowContainer>
-                    <Row><Icon content="fa fa-user fa-fw" /></Row>
-                    <Row><Icon content="fa fa-wallet fa-fw" /></Row>
-                    <Row><Icon content="fa fa-building fa-fw" /></Row>
-                    <Row><Icon content="fa fa-sync fa-fw" /></Row>
-                    <Row><Icon content="fa fa-coins fa-fw" /></Row>
-                </StyledRowContainer>
-                
+                <SideBarMiniContent />
             </StyledSideBar>
         </>
     )

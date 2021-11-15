@@ -49,7 +49,7 @@ const TestElement: React.FC = () => {
     return <>Hello World</>
 }
 
-const Row: React.FC<{disable?: boolean, to?: string}> = ({children, disable = false, to = undefined}) => {
+const Row: React.FC<{disable?: boolean, to?: string}> = ({children, disable = false, to = "#"}) => {
     const location = useLocation();
     const active = to === location.pathname;
 
