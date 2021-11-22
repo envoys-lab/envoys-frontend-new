@@ -17,6 +17,7 @@ import Header from 'components/Header';
 import Swap from 'components/Swap';
 import Companies from 'pages/Companies';
 import styled from 'styled-components';
+import Company from 'pages/Company';
 
 // This config is required for number formatting
 BigNumber.config({
@@ -54,6 +55,12 @@ const App: React.FC = () => {
                 <Route path="/companies">
                   <Companies />
                 </Route>
+
+                <Route path="/company/:companyId">
+                  <Company />
+                </Route>
+                
+
                 <Route path="/">
                   Coming soong...
                 </Route>

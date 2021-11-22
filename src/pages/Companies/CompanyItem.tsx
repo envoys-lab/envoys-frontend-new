@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledCompanyItem = styled.div`
     padding: 10px;
@@ -77,18 +78,19 @@ const CompanyItem: React.FC<{
     const statusString = statusCode === 0 ? "Ongoing" : "Finished";
     const statusColor = statusCode === 0 ? "#2261DA" : "silver";
     
-    return <StyledCompanyItem>
-        <StyledImage width="40px" height="40px" src="https://img.favpng.com/23/4/20/company-corporation-building-icon-png-favpng-xcyQpeSUspUX1REZD4KtbisrU.jpg" /> 
-        <StyledCompnayName>
-            <p>{finishedName}</p>
-            <p style={{color: statusColor, fontSize: "14px", lineHeight: "16px"}}>{statusString}</p>
-            <p style={{color: "#133D65", fontSize: "14px", lineHeight: "16px"}}>Will end in 14 days</p>
-        </StyledCompnayName>
-        <StyledRateWrapper>
-            <span style={{color: "#44AE9B"}}>3.84</span>
-            <div><CompanyFavoriteStar favorite={favorite} /></div>
-        </StyledRateWrapper>
-    </StyledCompanyItem>;
+    return <Link to={"/company/" + 1}><StyledCompanyItem>
+            <StyledImage width="40px" height="40px" src="https://img.favpng.com/23/4/20/company-corporation-building-icon-png-favpng-xcyQpeSUspUX1REZD4KtbisrU.jpg" /> 
+            <StyledCompnayName>
+                <p>{finishedName}</p>
+                <p style={{color: statusColor, fontSize: "14px", lineHeight: "16px"}}>{statusString}</p>
+                <p style={{color: "#133D65", fontSize: "14px", lineHeight: "16px"}}>Will end in 14 days</p>
+            </StyledCompnayName>
+            <StyledRateWrapper>
+                <span style={{color: "#44AE9B"}}>3.84</span>
+                <div><CompanyFavoriteStar favorite={favorite} /></div>
+            </StyledRateWrapper>
+        </StyledCompanyItem>
+    </Link>;
 }
 
 export default CompanyItem;
