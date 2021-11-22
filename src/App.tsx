@@ -16,6 +16,7 @@ import useScreenWidth from 'hooks/useScreenWidth';
 import Header from 'components/Header';
 import Swap from 'components/Swap';
 import Companies from 'pages/Companies';
+import styled from 'styled-components';
 
 // This config is required for number formatting
 BigNumber.config({
@@ -23,9 +24,18 @@ BigNumber.config({
   DECIMAL_PLACES: 80,
 })
 
+const StyledMain = styled.div`
+  height: 100vh;
+  max-width: 1360px;
+  margin: auto;
+  display: flex;
+  align-content: stretch;
+  // flex-wrap: wrap;
+  // flex-direction: column;
+`;
+
 const App: React.FC = () => {
   const [activeHiddenMenu, setActiveHiddenMenu] = useState(false);
-  const width = useScreenWidth();
 
   return (
     <ReduxProvider store={store}>
@@ -34,10 +44,10 @@ const App: React.FC = () => {
 
         <Router history={history}>
           <ResetCSS></ResetCSS>
-          <div style={{height: "100vh", maxWidth: "900px", margin: "auto", display: "flex", alignContent: "stretch", flexWrap: "wrap"}}>
+          <StyledMain>
             <SideBar active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
 
-            <div style={{marginLeft: "2px", height: "100%", flex: "1 1 auto"}}>
+            <div style={{marginLeft: "2px", height: "100%", flex: "1 1 auto", flexWrap: "nowrap"}}>
               <Header active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
               
               <Switch>
@@ -45,11 +55,11 @@ const App: React.FC = () => {
                   <Companies />
                 </Route>
                 <Route path="/">
-                  l
+                  Coming soong...
                 </Route>
               </Switch>
             </div>
-          </div>
+          </StyledMain>
 
           
         </Router>
