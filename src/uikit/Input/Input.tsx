@@ -3,15 +3,15 @@ import styled, { DefaultTheme } from "styled-components";
 const Input = styled.input`
   background-color: #F5F6F7;
   border: 0;
-  border-radius: 36px;
+  border-radius: 14px;
 //   color: ;
   display: block;
   font-size: 16px;
   outline: 0;
   padding: 0 16px;
   width: 100%;
-  height: 44px;
-  // border: 1px solid green;
+  height: 60px;
+  border: 1px solid #E8E8EA;
   &::placeholder {
     color: #0F2B46;
     opacity: 0.3;
@@ -25,6 +25,7 @@ const Input = styled.input`
   &:focus:not(:disabled) {
     box-shadow: black;
   }
+  background: white;
 `;
 
 
