@@ -15,6 +15,7 @@ import { SideBarHiddenButton } from './components/SideBar/SideBarHidden';
 import useScreenWidth from 'hooks/useScreenWidth';
 import Header from 'components/Header';
 import Swap from 'components/Swap';
+import Companies from 'pages/Companies';
 
 // This config is required for number formatting
 BigNumber.config({
@@ -41,7 +42,7 @@ const App: React.FC = () => {
               
               <Switch>
                 <Route path="/companies">
-                  <Swap />
+                  <Companies />
                 </Route>
                 <Route path="/">
                   l
