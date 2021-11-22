@@ -10,7 +10,7 @@ const StyledFullPageWrapper = styled.div`
 const StyledFullPage = styled.div`
     background: white;
     border-radius: 28px;
-    padding: 30px 21px;
+    padding: 21px 30px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
 `;
 
