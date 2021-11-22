@@ -1,3 +1,4 @@
+import YouTubePlayer from "components/YouTubePlayer";
 import React from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -92,13 +93,19 @@ const Company: React.FC = () => {
                     Crypto Emergency is a community of crypto enthusiasts united by an ecosystem with automated tools for daily financial transactions, storage of funds, creation and promotion of fintech innovations.
                     We solve the problem of integrating cryptocurrencies from cash and settlementoperations to the introduction of tokenization in the banking sector at the state level.
                 </StyledDescription>
+
+                <br />
+                <br />
+                <br />
+                <br />
+                <YouTubePlayer src="https://www.youtube.com/watch?v=Bze53qwHS8o" />
+
+
             </StyledCompanyInfo>
             <StyledActions>
                 <StyledTradeButton href="#" target="blank">Trade</StyledTradeButton>
                 <SocialLink href="#wp">Whitepapper</SocialLink>
                 <SocialLink href="https://google.com">google.com</SocialLink>
-                
-
             </StyledActions>
 
         </StyledInfoWrapper>
