@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const parse = function(url){
+const parse = function(url: string): string | false {
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     var match = url.match(regExp);
     return (match&&match[7].length==11)? match[7] : false;
@@ -9,11 +9,14 @@ const parse = function(url){
 
 const YouTubePlayer: React.FC<{src?: string}> = ({src}) => {
     if(!src) {
-        return <></>;
+        return <>Invalid youtube link</>;
     }
 
     const id = parse(src);
-    console.log(id);
+
+    if(!id) {
+        return <>Invalid youtube link</>;
+    }
 
     const fullLink = "https://www.youtube.com/embed/" + id;
     return (
