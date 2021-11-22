@@ -1,8 +1,8 @@
-import FullPage from "components/Pages/FullPage";
+import FullPage from "uikit/Pages/FullPage";
 
 const Companies: React.FC = () => {
     return <FullPage>
-        <span>Companies</span>
+        <span>Hot and tranding </span>
     </FullPage>
 }
 
