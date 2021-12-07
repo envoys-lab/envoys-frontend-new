@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { NavBar, NavBarWrapper } from './NavBar';
-import { HTMLAttributes } from 'react';
+import React from 'react';
 
 const StyledContent = styled.div`
   max-height: calc(100vh - 128px);

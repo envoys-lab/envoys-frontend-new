@@ -1,4 +1,5 @@
 import SelectTokenModal from './SelectTokenModal';
+import React from 'react';
 
 enum ModalList {
   Unknown,

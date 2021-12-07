@@ -1,12 +1,9 @@
-import { FC } from 'react';
+import React, { FC, Dispatch, SetStateAction } from 'react';
 import { SideBarHiddenButton } from 'components/SideBar/SideBarHidden';
 import Input from 'uikit/Input/Input';
 import useScreenWidth from 'hooks/useScreenWidth';
 
-const Header: FC<{ active: boolean; setActive: React.Dispatch<React.SetStateAction<boolean>> }> = ({
-  active,
-  setActive,
-}) => {
+const Header: FC<{ active: boolean; setActive: Dispatch<SetStateAction<boolean>> }> = ({ active, setActive }) => {
   const width = useScreenWidth();
 
   return (

@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import FullPage from 'uikit/Pages/FullPage';
 import Title from 'uikit/Pages/Title';
-import Editor from './Editor';
+// import Editor from './Editor';
 import RoadMap from './Roadmap';
 
 const StyledInfoWrapper = styled.div`

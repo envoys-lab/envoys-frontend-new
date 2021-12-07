@@ -106,19 +106,20 @@ const RoadMapItemBase: FunctionComponent<{
   );
 };
 
-const RoadMapPoint: FunctionComponent<{ children: ReactNode; year: number; q: number }> = ({ children, year, q }) => {
-  let d = new Date();
-  let currentYear = d.getUTCFullYear();
+export const RoadMapPoint: FunctionComponent<{ children: ReactNode; year: number; q: number }> = ({
+  children,
+  year,
+  q,
+}) => {
+  const d = new Date();
+  const currentYear = d.getUTCFullYear();
 
-  let m = Math.floor(d.getMonth() / 3) + 2;
-  let cq = m > 4 ? m - 4 : m;
+  // const m = Math.floor(d.getMonth() / 3) + 2;
+  // const cq = m > 4 ? m - 4 : m;
 
   let status = RoadMapItemType.Skiped;
 
-  if (year === currentYear) {
-    if (q === cq) {
-    }
-  } else if (year > currentYear) {
+  if (year > currentYear) {
     status = RoadMapItemType.Future;
   }
 
@@ -129,11 +130,11 @@ const RoadMapPoint: FunctionComponent<{ children: ReactNode; year: number; q: nu
   );
 };
 
-const init = (data: { year: number; q: number }[]) => {
-  let d = new Date();
-  let cy = d.getUTCFullYear();
-  let m = Math.floor(d.getMonth() / 3) + 2;
-  let cq = m > 4 ? m - 4 : m;
+export const init = (data: { year: number; q: number }[]) => {
+  const d = new Date();
+  const cy = d.getUTCFullYear();
+  const m = Math.floor(d.getMonth() / 3) + 2;
+  const cq = m > 4 ? m - 4 : m;
 
   const sortedData = data
     .sort((a, b) => {
@@ -157,7 +158,7 @@ const init = (data: { year: number; q: number }[]) => {
 
   let lastStatus = RoadMapItemType.Skiped;
 
-  const result: { year: number; q: number; state: RoadMapItemType }[] = sortedData.map((el, index, array) => {
+  const result: { year: number; q: number; state: RoadMapItemType }[] = sortedData.map((el) => {
     if (el.year === cy) {
       if (el.q >= cq) {
         if (lastStatus == RoadMapItemType.Skiped) {

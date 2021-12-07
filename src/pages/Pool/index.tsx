@@ -152,13 +152,21 @@ const Pool: React.FC = () => {
                               </div>
                               <div className={'mt-5'}>
                                 <i className={'grey--text fas fa-link'} />{' '}
-                                <a href={'https://etherscan.io/token/' + item.contract} target={'_blank'}>
+                                <a
+                                  href={'https://etherscan.io/token/' + item.contract}
+                                  target={'_blank'}
+                                  rel="noreferrer"
+                                >
                                   <small>See Token Info</small>
                                 </a>
                               </div>
                               <div className={'mt-5'}>
                                 <i className={'grey--text fas fa-link'} />{' '}
-                                <a href={'https://etherscan.io/address/' + item.contract} target={'_blank'}>
+                                <a
+                                  href={'https://etherscan.io/address/' + item.contract}
+                                  target={'_blank'}
+                                  rel="noreferrer"
+                                >
                                   <small>View contract</small>
                                 </a>
                               </div>

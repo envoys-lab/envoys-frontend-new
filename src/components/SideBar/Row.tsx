@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 // import { useDispatch } from 'react-redux';
 // import { AppDispatch, store } from "../../store/store";
 // import { modalSetAction } from '../../store/modal/reducer';
 // import ModalList, { Modals } from "../Modal/List";
 import { Link } from 'react-router-dom';
-import history from 'routerHistory';
 import { useLocation } from 'react-router-dom';
 
 const StyledRowDefault = styled.div`
@@ -40,10 +39,6 @@ const MarkDefault = styled.div`
 const MarkActive = styled(MarkDefault)`
   background: #f48020;
 `;
-
-const TestElement: React.FC = () => {
-  return <>Hello World</>;
-};
 
 const Row: React.FC<{ disable?: boolean; to?: string; alternative?: string[] }> = ({
   children,

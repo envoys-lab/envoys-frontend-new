@@ -1,5 +1,4 @@
-import { FunctionComponent, ReactNode, useEffect, useState } from 'react';
-import ReactDOM from 'react-dom';
+import React, { FunctionComponent, ReactNode, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { navAddAction } from 'store/company/navbar';
 import { RootState } from 'store/store';

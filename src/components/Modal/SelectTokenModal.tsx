@@ -1,7 +1,6 @@
-import { FC } from 'react';
-import styled from 'styled-components';
+import React from 'react';
 
-const SelectTokenModal: FC = () => {
+const SelectTokenModal: React.FC = () => {
   return <>Select, Token</>;
 };
 

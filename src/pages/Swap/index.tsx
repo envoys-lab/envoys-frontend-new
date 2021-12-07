@@ -32,14 +32,14 @@ const Swap: React.FC = () => {
   };
 
   const handleToggle = (index) => {
-    let items = [...toggle];
+    const items = [...toggle];
     items[index] = Object.assign({}, { show: !toggle[index].show });
     setToggle(items);
     setInner(index);
   };
 
   const handleQuantity = (event, index) => {
-    let items = [...quantity];
+    const items = [...quantity];
     items[index] = Object.assign({}, { value: event.target.value });
     setQuantity(items);
   };
@@ -62,8 +62,8 @@ const Swap: React.FC = () => {
     });
   };
 
-  let token1 = getToken(pair.split('-')[1]);
-  let token2 = getToken(pair.split('-')[0]);
+  const token1 = getToken(pair.split('-')[1]);
+  const token2 = getToken(pair.split('-')[0]);
 
   let content;
   if (toggle[inner === 0 || inner === 1 ? inner : 0].show) {
@@ -218,7 +218,7 @@ const Swap: React.FC = () => {
             <label>You Pay</label>
             <div className={'token-input'}>
               <div className={'label'}>
-                <a href={'https://etherscan.io/token/' + token2.contract} target={'_blank'}>
+                <a href={'https://etherscan.io/token/' + token2.contract} target={'_blank'} rel="noreferrer">
                   {token2.name}
                 </a>
               </div>
@@ -250,7 +250,7 @@ const Swap: React.FC = () => {
             <label>You Receive</label>
             <div className={'token-input'}>
               <div className={'label'}>
-                <a href={'https://etherscan.io/token/' + token1.contract} target={'_blank'}>
+                <a href={'https://etherscan.io/token/' + token1.contract} target={'_blank'} rel="noreferrer">
                   {token1.name}
                 </a>
               </div>

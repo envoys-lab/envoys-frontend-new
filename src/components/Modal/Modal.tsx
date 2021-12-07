@@ -1,7 +1,7 @@
-import { FC, useEffect, useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import { AppDispatch, RootState, store } from '../../store/store';
+import { AppDispatch, RootState } from '../../store/store';
 import { modalCloseAction } from '../../store/modal/reducer';
 import ModalList, { Modals } from './List';
 import useOutsideAlerter from 'hooks/useOutsideAlerter';

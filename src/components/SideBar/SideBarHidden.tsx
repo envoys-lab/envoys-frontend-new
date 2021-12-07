@@ -2,7 +2,7 @@ import Icon from 'components/Icon';
 import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 import SideBarDesktopContent from './SideBarDesktopContent';
-import useOutsideAlerter from 'hooks/useOutsideAlerter';
+// import useOutsideAlerter from 'hooks/useOutsideAlerter';
 import logo from '../../logo.svg';
 import StyledLogo from './StyledLogo';
 
@@ -92,7 +92,7 @@ const SideBarHidden: React.FC<{ active: boolean; setActive: React.Dispatch<React
     );
   };
   const wrapperRef = useRef(null);
-  useOutsideAlerter(wrapperRef, () => {});
+  // useOutsideAlerter(wrapperRef, () => {});
 
   return (
     <>
