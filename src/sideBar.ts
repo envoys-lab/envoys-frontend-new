@@ -40,7 +40,12 @@ const SideBarDataItems: SideBarDataItem[] = [
   {
     title: 'Trade',
     icon: 'fa-sync',
-    disable: true,
+    to: '/swap/ETH-USDT',
+  },
+  {
+    title: 'Pool',
+    icon: 'fa-hotdog',
+    to: '/pool',
   },
   {
     title: 'Finance',

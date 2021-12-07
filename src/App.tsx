@@ -14,13 +14,15 @@ import Input from 'uikit/Input/Input'
 import { SideBarHiddenButton } from './components/SideBar/SideBarHidden'
 import useScreenWidth from 'hooks/useScreenWidth'
 import Header from 'components/Header'
-import Swap from 'components/Swap'
-import Companies from 'pages/Companies'
-import styled from 'styled-components'
-import Company from 'pages/Company'
 import RoadMap from 'pages/Company/Roadmap'
 import { NavBar, NavBarWrapper, NavItem } from 'pages/Company/NavBar'
 import NavBarableContent from 'pages/Company/NavBarableContent'
+import Companies from 'pages/Companies'
+import styled from 'styled-components'
+import Company from 'pages/Company'
+
+import Swap from 'pages/Swap'
+import Pool from 'pages/Pool'
 
 // This config is required for number formatting
 BigNumber.config({
@@ -63,27 +65,12 @@ const App: React.FC = () => {
                   <Company />
                 </Route>
 
-                <Route path="/test">
-                  <NavBarableContent style={{ maxHeight: '100%' }}>
-                    <NavItem title="Test" hash="test">
-                      Test content
-                    </NavItem>
-                    <NavItem title="Test2" hash="test2">
-                      Test content2
-                    </NavItem>
-                    <NavItem title="Test2" hash="test2">
-                      Test content2
-                    </NavItem>
-                    <NavItem title="Test2" hash="test3">
-                      Test content2
-                    </NavItem>
-                    <NavItem title="Test2" hash="test4">
-                      Test content2
-                    </NavItem>
-                    <NavItem title="Test2" hash="test5">
-                      Test content2
-                    </NavItem>
-                  </NavBarableContent>
+                <Route path="/swap/:pair">
+                  <Swap />
+                </Route>
+
+                <Route path="/pool">
+                  <Pool />
                 </Route>
 
                 <Route path="/">Coming soong...</Route>
