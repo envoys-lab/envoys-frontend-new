@@ -1,7 +1,7 @@
-import styled, { DefaultTheme } from "styled-components";
+import styled, { DefaultTheme } from 'styled-components'
 
 const Input = styled.input`
-  background-color: #F5F6F7;
+  background-color: #f5f6f7;
   border: 0;
   border-radius: 14px;
   display: block;
@@ -10,9 +10,9 @@ const Input = styled.input`
   padding: 0 16px;
   width: 100%;
   height: 60px;
-  border: 1px solid #E8E8EA;
+  border: 1px solid #e8e8ea;
   &::placeholder {
-    color: #0F2B46;
+    color: #0f2b46;
     opacity: 0.3;
   }
   &:disabled {
@@ -25,7 +25,6 @@ const Input = styled.input`
     box-shadow: black;
   }
   background: white;
-`;
+`
 
-
-export default Input;
+export default Input

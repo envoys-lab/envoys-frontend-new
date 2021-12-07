@@ -6,7 +6,6 @@ import { ethers } from 'ethers'
 import getNodeUrl from '../utils/getRpcUrl'
 import { useCallback } from 'react'
 
-
 const POLLING_INTERVAL = 12000
 const rpcUrl = getNodeUrl()
 const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10)
@@ -22,9 +21,9 @@ const walletconnect = new WalletConnectConnector({
 const bscConnector = new BscConnector({ supportedChainIds: [chainId] })
 
 export const connectors = {
-    "injected": injected,
-    "walletconnect": walletconnect,
-    "bsc": bscConnector
+  injected: injected,
+  walletconnect: walletconnect,
+  bsc: bscConnector,
 }
 
 export const getLibrary = (provider): ethers.providers.Web3Provider => {
@@ -56,20 +55,21 @@ export const signMessage = async (provider: any, account: string, message: strin
   return provider.getSigner(account).signMessage(message)
 }
 
-
 const useAuth = () => {
-    const { activate } = useWeb3React();
+  const { activate } = useWeb3React()
 
-    const login = useCallback((connector: any) => {
-        activate(connector, (error: Error) => {
-            if(error) {
-                console.log(error);
+  const login = useCallback(
+    (connector: any) => {
+      activate(connector, (error: Error) => {
+        if (error) {
+          console.log(error)
+        }
+      })
+    },
+    [activate],
+  )
 
-            }
-        })
-    }, [activate])
-
-    return {login};
+  return { login }
 }
 
-export default useAuth;
+export default useAuth

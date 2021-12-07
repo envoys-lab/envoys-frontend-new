@@ -1,11 +1,8 @@
-import { FC } from "react";
-import styled from "styled-components";
-
+import { FC } from 'react'
+import styled from 'styled-components'
 
 const SelectTokenModal: FC = () => {
-    return <>
-        Select, Token
-    </>
+  return <>Select, Token</>
 }
 
-export default SelectTokenModal;
+export default SelectTokenModal
