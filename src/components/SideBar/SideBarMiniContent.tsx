@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
-import Row from './Row'
-import Icon from 'components/Icon'
-import sideBar from 'sideBar'
+import React from 'react';
+import styled from 'styled-components';
+import Row from './Row';
+import Icon from 'components/Icon';
+import sideBar from 'sideBar';
 
 const StyledRowContainer = styled.div`
   text-align: left;
   width: 100%;
-`
+`;
 
 const SideBarMiniContent: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ const SideBarMiniContent: React.FC = () => {
         ))}
       </StyledRowContainer>
     </>
-  )
-}
+  );
+};
 
-export default SideBarMiniContent
+export default SideBarMiniContent;

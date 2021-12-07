@@ -1,4 +1,4 @@
-import styled, { DefaultTheme } from 'styled-components'
+import styled, { DefaultTheme } from 'styled-components';
 
 const Input = styled.input`
   background-color: #f5f6f7;
@@ -25,6 +25,6 @@ const Input = styled.input`
     box-shadow: black;
   }
   background: white;
-`
+`;
 
-export default Input
+export default Input;

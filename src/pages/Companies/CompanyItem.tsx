@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledCompanyItem = styled.div`
   padding: 10px;
@@ -11,12 +11,12 @@ const StyledCompanyItem = styled.div`
   height: 110px;
   max-width: 100%;
   display: flex;
-`
+`;
 
 const StyledCompnayName = styled.span`
   margin-left: 25px;
   margin-top: 21px;
-`
+`;
 
 const StyledRateWrapper = styled.div`
   margin-left: 25px;
@@ -24,12 +24,12 @@ const StyledRateWrapper = styled.div`
   margin-left: auto;
   padding-right: 20px;
   text-align: center;
-`
+`;
 
 const StyledImage = styled.img`
   margin-top: 10px;
   margin-left: 10px;
-`
+`;
 
 const StyledCompanyFavoriteStar = styled.i`
   margin-top: 10px;
@@ -40,36 +40,36 @@ const StyledCompanyFavoriteStar = styled.i`
   color: silver;
   border-radius: 4px;
   cursor: pointer;
-`
+`;
 
 const StyledCompanyFavoriteStarActive = styled(StyledCompanyFavoriteStar)`
   color: #ffbf1c !important;
-`
+`;
 
 const CompanyFavoriteStar: React.FC<{ favorite: boolean }> = ({ favorite }) => {
-  const [favoriteState, setFavoriteState] = useState(favorite)
+  const [favoriteState, setFavoriteState] = useState(favorite);
 
   const toggle = () => {
-    setFavoriteState(!favoriteState)
-  }
+    setFavoriteState(!favoriteState);
+  };
 
-  const AbstractStyledComponent = favoriteState ? StyledCompanyFavoriteStarActive : StyledCompanyFavoriteStar
-  return <AbstractStyledComponent onClick={toggle} className={'fa fa-star'}></AbstractStyledComponent>
-}
+  const AbstractStyledComponent = favoriteState ? StyledCompanyFavoriteStarActive : StyledCompanyFavoriteStar;
+  return <AbstractStyledComponent onClick={toggle} className={'fa fa-star'}></AbstractStyledComponent>;
+};
 
 const CompanyItem: React.FC<{
-  name: string
-  status?: number
-  endtime?: number
-  rate?: number
-  favorite?: boolean
-  logo?: string
+  name: string;
+  status?: number;
+  endtime?: number;
+  rate?: number;
+  favorite?: boolean;
+  logo?: string;
 }> = ({ name, status, endtime, rate, favorite, logo }) => {
-  const finishedName = name.length <= 26 ? name : name.slice(0, 26 - 3) + '...'
+  const finishedName = name.length <= 26 ? name : name.slice(0, 26 - 3) + '...';
 
-  const statusCode = status === undefined ? 0 : status
-  const statusString = statusCode === 0 ? 'Ongoing' : 'Finished'
-  const statusColor = statusCode === 0 ? '#2261DA' : 'silver'
+  const statusCode = status === undefined ? 0 : status;
+  const statusString = statusCode === 0 ? 'Ongoing' : 'Finished';
+  const statusColor = statusCode === 0 ? '#2261DA' : 'silver';
 
   return (
     <Link to={'/company/' + 1}>
@@ -92,7 +92,7 @@ const CompanyItem: React.FC<{
         </StyledRateWrapper>
       </StyledCompanyItem>
     </Link>
-  )
-}
+  );
+};
 
-export default CompanyItem
+export default CompanyItem;

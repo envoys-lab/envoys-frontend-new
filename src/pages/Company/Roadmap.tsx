@@ -1,5 +1,5 @@
-import React, { FunctionComponent, ReactNode } from 'react'
-import styled from 'styled-components'
+import React, { FunctionComponent, ReactNode } from 'react';
+import styled from 'styled-components';
 
 const StyledRoadMapItem = styled.div`
   display: inline-block;
@@ -21,20 +21,20 @@ const StyledRoadMapItem = styled.div`
   }
 
   // background: rgba(0,255,0,0.5);
-`
+`;
 
 const StyledRoadMapItemSkiped = styled(StyledRoadMapItem)`
   &:before {
     content: url(/assets/svg/roadmap-elipse-skiped.svg) !important;
   }
   // border-left: 2px dashed #F48020;
-`
+`;
 
 const StyledRoadMapItemCurrent = styled(StyledRoadMapItem)`
   &:before {
     content: url(/assets/svg/roadmap-elipse-current.svg) !important;
   }
-`
+`;
 
 const StyledRoadMapItemWrapper = styled.li`
   // padding-bottom: 5.5rem;
@@ -52,16 +52,16 @@ const StyledRoadMapItemWrapper = styled.li`
       padding: 0;
     }
   }
-`
+`;
 
 const StyledDate = styled.div`
   display: inline-block;
   margin-right: 140px;
-`
+`;
 
 const StyledRoadMap = styled.ul`
   list-style-type: none;
-`
+`;
 
 const StyledRoadMapContent = styled.span`
   background: #ffffff;
@@ -73,7 +73,7 @@ const StyledRoadMapContent = styled.span`
   border-radius: 14px;
   padding: 15px;
   margin-left: 50px;
-`
+`;
 
 enum RoadMapItemType {
   Future,
@@ -82,17 +82,17 @@ enum RoadMapItemType {
 }
 
 const RoadMapItemBase: FunctionComponent<{
-  children: React.ReactNode
-  state: RoadMapItemType
-  year?: number
-  q?: number
+  children: React.ReactNode;
+  state: RoadMapItemType;
+  year?: number;
+  q?: number;
 }> = ({ children, state, year = 2021, q = 1 }) => {
   const SelectedWrapper =
     state === RoadMapItemType.Skiped
       ? StyledRoadMapItemSkiped
       : state === RoadMapItemType.Current
       ? StyledRoadMapItemCurrent
-      : StyledRoadMapItem
+      : StyledRoadMapItem;
 
   return (
     <StyledRoadMapItemWrapper>
@@ -103,76 +103,76 @@ const RoadMapItemBase: FunctionComponent<{
         <StyledRoadMapContent>{children}</StyledRoadMapContent>
       </SelectedWrapper>
     </StyledRoadMapItemWrapper>
-  )
-}
+  );
+};
 
 const RoadMapPoint: FunctionComponent<{ children: ReactNode; year: number; q: number }> = ({ children, year, q }) => {
-  let d = new Date()
-  let currentYear = d.getUTCFullYear()
+  let d = new Date();
+  let currentYear = d.getUTCFullYear();
 
-  let m = Math.floor(d.getMonth() / 3) + 2
-  let cq = m > 4 ? m - 4 : m
+  let m = Math.floor(d.getMonth() / 3) + 2;
+  let cq = m > 4 ? m - 4 : m;
 
-  let status = RoadMapItemType.Skiped
+  let status = RoadMapItemType.Skiped;
 
   if (year === currentYear) {
     if (q === cq) {
     }
   } else if (year > currentYear) {
-    status = RoadMapItemType.Future
+    status = RoadMapItemType.Future;
   }
 
   return (
     <RoadMapItemBase state={status} year={year} q={q}>
       {children}
     </RoadMapItemBase>
-  )
-}
+  );
+};
 
 const init = (data: { year: number; q: number }[]) => {
-  let d = new Date()
-  let cy = d.getUTCFullYear()
-  let m = Math.floor(d.getMonth() / 3) + 2
-  let cq = m > 4 ? m - 4 : m
+  let d = new Date();
+  let cy = d.getUTCFullYear();
+  let m = Math.floor(d.getMonth() / 3) + 2;
+  let cq = m > 4 ? m - 4 : m;
 
   const sortedData = data
     .sort((a, b) => {
       if (a.year > b.year) {
-        return 1
+        return 1;
       } else if (a.year < b.year) {
-        return -1
+        return -1;
       }
-      return 0
+      return 0;
     })
     .sort((a, b) => {
-      if (a.year != b.year) return 0
+      if (a.year != b.year) return 0;
 
       if (a.q > b.q) {
-        return 1
+        return 1;
       } else if (a.q < b.q) {
-        return -1
+        return -1;
       }
-      return 0
-    })
+      return 0;
+    });
 
-  let lastStatus = RoadMapItemType.Skiped
+  let lastStatus = RoadMapItemType.Skiped;
 
   const result: { year: number; q: number; state: RoadMapItemType }[] = sortedData.map((el, index, array) => {
     if (el.year === cy) {
       if (el.q >= cq) {
         if (lastStatus == RoadMapItemType.Skiped) {
-          lastStatus = RoadMapItemType.Current
+          lastStatus = RoadMapItemType.Current;
         }
       }
     }
     return {
       ...el,
       state: lastStatus,
-    }
-  })
+    };
+  });
 
-  return result
-}
+  return result;
+};
 
 const RoadMap = () => {
   return (
@@ -193,7 +193,7 @@ const RoadMap = () => {
         Ipsum
       </RoadMapItemBase>
     </StyledRoadMap>
-  )
-}
+  );
+};
 
-export default RoadMap
+export default RoadMap;

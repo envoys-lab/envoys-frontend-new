@@ -1,10 +1,10 @@
-import Icon from 'components/Icon'
-import React, { useEffect, useState, useRef } from 'react'
-import styled from 'styled-components'
-import SideBarDesktopContent from './SideBarDesktopContent'
-import useOutsideAlerter from 'hooks/useOutsideAlerter'
-import logo from '../../logo.svg'
-import StyledLogo from './StyledLogo'
+import Icon from 'components/Icon';
+import React, { useEffect, useState, useRef } from 'react';
+import styled from 'styled-components';
+import SideBarDesktopContent from './SideBarDesktopContent';
+import useOutsideAlerter from 'hooks/useOutsideAlerter';
+import logo from '../../logo.svg';
+import StyledLogo from './StyledLogo';
 
 const StyledSideBarHidden = styled.div`
   position: fixed;
@@ -16,7 +16,7 @@ const StyledSideBarHidden = styled.div`
   background: white;
   transition: 0.6s;
   text-align: center;
-`
+`;
 
 const StyledCloseButton = styled.div`
   position: fixed;
@@ -26,7 +26,7 @@ const StyledCloseButton = styled.div`
   :hover {
     cursor: pointer;
   }
-`
+`;
 
 const StyledSideBarHiddenWrapper = styled.div`
   position: fixed;
@@ -37,50 +37,50 @@ const StyledSideBarHiddenWrapper = styled.div`
   width: 100%;
   height: 100%;
   transition: 1s;
-`
+`;
 
 export const SideBarHiddenButton: React.FC<{
-  active: boolean
-  setActive: React.Dispatch<React.SetStateAction<boolean>>
+  active: boolean;
+  setActive: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ active, setActive }) => {
   return (
     <div onClick={() => setActive(!active)} style={{ padding: '10px' }}>
       <i className="fa fa-spinner"></i>
     </div>
-  )
-}
+  );
+};
 
 const SideBarHidden: React.FC<{ active: boolean; setActive: React.Dispatch<React.SetStateAction<boolean>> }> = ({
   active,
   setActive,
 }) => {
-  const [closing, setClosing] = useState(false)
+  const [closing, setClosing] = useState(false);
 
   const toggle = () => {
-    const element = document.getElementById('hidden-side-bar')
-    const wrapper = document.getElementById('hidden-side-bar-wrapper')
+    const element = document.getElementById('hidden-side-bar');
+    const wrapper = document.getElementById('hidden-side-bar-wrapper');
     if (element) {
-      element.style.left = '-240px'
-      wrapper.style['backdrop-filter'] = 'none'
-      setClosing(true)
+      element.style.left = '-240px';
+      wrapper.style['backdrop-filter'] = 'none';
+      setClosing(true);
     }
 
     setTimeout(() => {
-      setActive(!active)
-    }, 800)
-  }
+      setActive(!active);
+    }, 800);
+  };
 
   useEffect(() => {
-    const element = document.getElementById('hidden-side-bar')
-    const wrapper = document.getElementById('hidden-side-bar-wrapper')
+    const element = document.getElementById('hidden-side-bar');
+    const wrapper = document.getElementById('hidden-side-bar-wrapper');
     if (element) {
-      element.style.left = '0px'
-      wrapper.style['backdrop-filter'] = 'blur(6px)'
+      element.style.left = '0px';
+      wrapper.style['backdrop-filter'] = 'blur(6px)';
     }
     setTimeout(() => {
-      setClosing(false)
-    }, 800)
-  }, [active])
+      setClosing(false);
+    }, 800);
+  }, [active]);
 
   const CloseButton = () => {
     return (
@@ -89,10 +89,10 @@ const SideBarHidden: React.FC<{ active: boolean; setActive: React.Dispatch<React
           <Icon content="fa fa-times" />
         </StyledCloseButton>
       </span>
-    )
-  }
-  const wrapperRef = useRef(null)
-  useOutsideAlerter(wrapperRef, () => {})
+    );
+  };
+  const wrapperRef = useRef(null);
+  useOutsideAlerter(wrapperRef, () => {});
 
   return (
     <>
@@ -106,7 +106,7 @@ const SideBarHidden: React.FC<{ active: boolean; setActive: React.Dispatch<React
         </StyledSideBarHiddenWrapper>
       )}
     </>
-  )
-}
+  );
+};
 
-export default SideBarHidden
+export default SideBarHidden;

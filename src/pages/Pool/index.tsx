@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import Tokens from '../../tokens'
+import React, { useState, useEffect } from 'react';
+import Tokens from '../../tokens';
 
-import '../app.scss'
+import '../app.scss';
 
 const stake = {
   name: 'TestCoin',
   symbol: 'tcoin',
   icon: 'https://pancakeswap.finance/images/tokens/0x7961Ade0a767c0E5B67Dd1a1F78ba44F727642Ed.svg',
   contract: '0x7961Ade0a767c0E5B67Dd1a1F78ba44F727642Ed',
-}
+};
 
 const Pool: React.FC = () => {
-  const [tokens, setTokes] = useState([])
-  const [search, setSearch] = useState('')
-  const [active, setActive] = useState(0)
+  const [tokens, setTokes] = useState([]);
+  const [search, setSearch] = useState('');
+  const [active, setActive] = useState(0);
 
   const eventHandler = (e, index) => {
-    e.preventDefault()
-    setActive(index)
-  }
+    e.preventDefault();
+    setActive(index);
+  };
 
   useEffect(() => {
     setTokes(
       Tokens.filter((entry) => Object.values(entry).some((val) => typeof val === 'string' && val.includes(search))),
-    )
-  }, [search])
+    );
+  }, [search]);
 
   return (
     <div className={'main'}>
@@ -188,6 +188,6 @@ const Pool: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
-export default Pool
+  );
+};
+export default Pool;

@@ -1,10 +1,10 @@
-import { FC, useEffect, useRef } from 'react'
-import styled from 'styled-components'
-import { useSelector, useDispatch } from 'react-redux'
-import { AppDispatch, RootState, store } from '../../store/store'
-import { modalCloseAction } from '../../store/modal/reducer'
-import ModalList, { Modals } from './List'
-import useOutsideAlerter from 'hooks/useOutsideAlerter'
+import { FC, useEffect, useRef } from 'react';
+import styled from 'styled-components';
+import { useSelector, useDispatch } from 'react-redux';
+import { AppDispatch, RootState, store } from '../../store/store';
+import { modalCloseAction } from '../../store/modal/reducer';
+import ModalList, { Modals } from './List';
+import useOutsideAlerter from 'hooks/useOutsideAlerter';
 
 export const StyledBack = styled.div`
   position: fixed;
@@ -15,7 +15,7 @@ export const StyledBack = styled.div`
   width: 100%;
   background: rgba(245, 246, 247, 0.2);
   backdrop-filter: blur(4px);
-`
+`;
 
 export const StyledModalWrapper = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const StyledModalWrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-`
+`;
 
 export const StyledModalBox = styled.div`
   max-width: 440px;
@@ -35,21 +35,21 @@ export const StyledModalBox = styled.div`
   margin: 20px;
   border-radius: 28px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
-`
+`;
 
 const StyledModalHeader = styled.div`
   font-size: 16px;
   margin-bottom: 20px;
-`
+`;
 
 const Modal: FC = () => {
-  const dispatch = useDispatch<AppDispatch>()
-  const wrapperRef = useRef(null)
+  const dispatch = useDispatch<AppDispatch>();
+  const wrapperRef = useRef(null);
 
-  useOutsideAlerter(wrapperRef, () => dispatch(modalCloseAction()))
+  useOutsideAlerter(wrapperRef, () => dispatch(modalCloseAction()));
 
-  const info = useSelector<RootState, number>((state) => state.modal.view)
-  const CurrentPage = Modals[info].view
+  const info = useSelector<RootState, number>((state) => state.modal.view);
+  const CurrentPage = Modals[info].view;
 
   const view = (
     <StyledBack>
@@ -60,8 +60,8 @@ const Modal: FC = () => {
         </StyledModalBox>
       </StyledModalWrapper>
     </StyledBack>
-  )
-  return info !== ModalList.Unknown || false ? view : <input type="hidden" value="hidden-modal-page-here" />
-}
+  );
+  return info !== ModalList.Unknown || false ? view : <input type="hidden" value="hidden-modal-page-here" />;
+};
 
-export default Modal
+export default Modal;

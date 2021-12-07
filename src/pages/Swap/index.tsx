@@ -1,71 +1,71 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, Link, useHistory } from 'react-router-dom'
-import Switch from 'react-switch'
-import Tokens from '../../tokens'
+import React, { useState, useEffect } from 'react';
+import { useParams, Link, useHistory } from 'react-router-dom';
+import Switch from 'react-switch';
+import Tokens from '../../tokens';
 
-import '../app.scss'
+import '../app.scss';
 
-const speedItems = ['Standard (5)', 'Fast (6)', 'Instant (7)']
-const toleranceItems = ['0.1%', '0.5%', '1.0%']
+const speedItems = ['Standard (5)', 'Fast (6)', 'Instant (7)'];
+const toleranceItems = ['0.1%', '0.5%', '1.0%'];
 
 const Swap: React.FC = () => {
-  const history = useHistory()
-  const { pair } = useParams<{ pair: string }>()
+  const history = useHistory();
+  const { pair } = useParams<{ pair: string }>();
 
-  const [expert, setExpert] = useState({ checked: false })
-  const [multihops, setMultihops] = useState({ checked: false })
-  const [deadline, setDeadline] = useState(20)
-  const [trxspeed, setTrxspeed] = useState(speedItems[0])
-  const [tolerance, setTolerance] = useState(toleranceItems[1])
-  const [toggle, setToggle] = useState([{ show: false }, { show: false }, { show: false }])
-  const [search, setSearch] = useState('')
-  const [inner, setInner] = useState(0)
-  const [tokens, setTokes] = useState([])
-  const [quantity, setQuantity] = useState([{ value: 0 }, { value: 0 }])
+  const [expert, setExpert] = useState({ checked: false });
+  const [multihops, setMultihops] = useState({ checked: false });
+  const [deadline, setDeadline] = useState(20);
+  const [trxspeed, setTrxspeed] = useState(speedItems[0]);
+  const [tolerance, setTolerance] = useState(toleranceItems[1]);
+  const [toggle, setToggle] = useState([{ show: false }, { show: false }, { show: false }]);
+  const [search, setSearch] = useState('');
+  const [inner, setInner] = useState(0);
+  const [tokens, setTokes] = useState([]);
+  const [quantity, setQuantity] = useState([{ value: 0 }, { value: 0 }]);
 
   const handleExpert = (checked) => {
-    setExpert({ checked: checked })
-  }
+    setExpert({ checked: checked });
+  };
 
   const handleMultihops = (checked) => {
-    setMultihops({ checked: checked })
-  }
+    setMultihops({ checked: checked });
+  };
 
   const handleToggle = (index) => {
-    let items = [...toggle]
-    items[index] = Object.assign({}, { show: !toggle[index].show })
-    setToggle(items)
-    setInner(index)
-  }
+    let items = [...toggle];
+    items[index] = Object.assign({}, { show: !toggle[index].show });
+    setToggle(items);
+    setInner(index);
+  };
 
   const handleQuantity = (event, index) => {
-    let items = [...quantity]
-    items[index] = Object.assign({}, { value: event.target.value })
-    setQuantity(items)
-  }
+    let items = [...quantity];
+    items[index] = Object.assign({}, { value: event.target.value });
+    setQuantity(items);
+  };
 
   useEffect(() => {
     setTokes(
       Tokens.filter((entry) => Object.values(entry).some((val) => typeof val === 'string' && val.includes(search))),
-    )
-  }, [search])
+    );
+  }, [search]);
 
   const getRecovery = () => {
-    return history.push('/swap/' + pair.split('-')[1] + '-' + pair.split('-')[0])
-  }
+    return history.push('/swap/' + pair.split('-')[1] + '-' + pair.split('-')[0]);
+  };
 
   const getToken = (symbol) => {
     return Tokens.find((item) => {
       if (item.symbol.toUpperCase() === symbol) {
-        return item
+        return item;
       }
-    })
-  }
+    });
+  };
 
-  let token1 = getToken(pair.split('-')[1])
-  let token2 = getToken(pair.split('-')[0])
+  let token1 = getToken(pair.split('-')[1]);
+  let token2 = getToken(pair.split('-')[0]);
 
-  let content
+  let content;
   if (toggle[inner === 0 || inner === 1 ? inner : 0].show) {
     content = (
       <section className={'tokens'}>
@@ -107,7 +107,7 @@ const Swap: React.FC = () => {
           )}
         </ul>
       </section>
-    )
+    );
   } else {
     content = (
       <section className={'swap'}>
@@ -283,7 +283,7 @@ const Swap: React.FC = () => {
           </div>
         )}
       </section>
-    )
+    );
   }
 
   return (
@@ -308,6 +308,6 @@ const Swap: React.FC = () => {
         </div>
       </div>
     </div>
-  )
-}
-export default Swap
+  );
+};
+export default Swap;

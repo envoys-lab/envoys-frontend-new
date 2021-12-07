@@ -1,30 +1,30 @@
-import YouTubePlayer from 'components/YouTubePlayer'
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import styled from 'styled-components'
-import FullPage from 'uikit/Pages/FullPage'
-import Title from 'uikit/Pages/Title'
-import Editor from './Editor'
-import RoadMap from './Roadmap'
+import YouTubePlayer from 'components/YouTubePlayer';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
+import FullPage from 'uikit/Pages/FullPage';
+import Title from 'uikit/Pages/Title';
+import Editor from './Editor';
+import RoadMap from './Roadmap';
 
 const StyledInfoWrapper = styled.div`
   display: flex;
   flex-wrap: nowrap;
   padding: 40px 40px;
-`
-const StyledLogo = styled.img``
+`;
+const StyledLogo = styled.img``;
 const StyledCompanyInfo = styled.div`
   margin-left: 35px;
-`
+`;
 const StyledName = styled.h1`
   font-size: 21px;
   line-height: 25px;
-`
+`;
 const StyledDescription = styled.div`
   padding-top: 10px;
   font-weight: 400;
   max-width: 500px;
-`
+`;
 const StyledActions = styled.div`
   width: 200px;
   min-height: 45px;
@@ -32,7 +32,7 @@ const StyledActions = styled.div`
   margin-left: 35px;
   flex-direction: column;
   margin-left: auto;
-`
+`;
 
 const StyledTradeButton = styled.a`
   background: #f48020;
@@ -51,7 +51,7 @@ const StyledTradeButton = styled.a`
   }
 
   transition: 0.3s;
-`
+`;
 
 const StyledSocialLink = styled.a`
   min-height: 40px;
@@ -71,7 +71,7 @@ const StyledSocialLink = styled.a`
   }
 
   margin-top: 10px;
-`
+`;
 
 const SocialLink: React.FC<{ children: React.ReactNode; href: string }> = ({ children, href }) => {
   return (
@@ -79,8 +79,8 @@ const SocialLink: React.FC<{ children: React.ReactNode; href: string }> = ({ chi
       <div style={{ marginRight: '5px' }}>{children}</div>
       <i className="fa fa-share" />
     </StyledSocialLink>
-  )
-}
+  );
+};
 
 const StyledRateWrapper = styled.div`
   display: flex;
@@ -88,10 +88,10 @@ const StyledRateWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin: 10px 0px;
-`
+`;
 
 const Company: React.FC = () => {
-  const { companyId } = useParams<{ companyId: string }>()
+  const { companyId } = useParams<{ companyId: string }>();
   return (
     <FullPage>
       <Title>Company {companyId}</Title>
@@ -139,6 +139,6 @@ const Company: React.FC = () => {
         </StyledActions>
       </StyledInfoWrapper>
     </FullPage>
-  )
-}
-export default Company
+  );
+};
+export default Company;

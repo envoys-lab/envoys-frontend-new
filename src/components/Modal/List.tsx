@@ -1,4 +1,4 @@
-import SelectTokenModal from './SelectTokenModal'
+import SelectTokenModal from './SelectTokenModal';
 
 enum ModalList {
   Unknown,
@@ -14,6 +14,6 @@ export const Modals = {
     title: 'Select Token',
     view: SelectTokenModal,
   },
-}
+};
 
-export default ModalList
+export default ModalList;

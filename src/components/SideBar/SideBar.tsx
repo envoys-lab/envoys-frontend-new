@@ -1,14 +1,14 @@
-import React from 'react'
-import SideBarDesktop from './SideBarDesktop'
-import SideBarMini from './SideBarMini'
-import SideBarHidden from './SideBarHidden'
-import useScreenWidth from 'hooks/useScreenWidth'
+import React from 'react';
+import SideBarDesktop from './SideBarDesktop';
+import SideBarMini from './SideBarMini';
+import SideBarHidden from './SideBarHidden';
+import useScreenWidth from 'hooks/useScreenWidth';
 
 const SideBar: React.FC<{ active: boolean; setActive: React.Dispatch<React.SetStateAction<boolean>> }> = ({
   active,
   setActive,
 }) => {
-  const width = useScreenWidth()
+  const width = useScreenWidth();
 
   return (
     <>
@@ -20,7 +20,7 @@ const SideBar: React.FC<{ active: boolean; setActive: React.Dispatch<React.SetSt
         <SideBarHidden active={active} setActive={setActive} />
       )}
     </>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;

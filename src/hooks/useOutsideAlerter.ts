@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 function useOutsideAlerter(ref, fn) {
   React.useEffect(() => {
@@ -7,17 +7,17 @@ function useOutsideAlerter(ref, fn) {
      */
     function handleClickOutside(event) {
       if (ref.current && !ref.current.contains(event.target)) {
-        fn()
+        fn();
       }
     }
 
     // Bind the event listener
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
       // Unbind the event listener on clean up
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [ref])
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [ref]);
 }
 
-export default useOutsideAlerter
+export default useOutsideAlerter;

@@ -1,22 +1,22 @@
-import FullPage from 'uikit/Pages/FullPage'
-import Title from 'uikit/Pages/Title'
-import React from 'react'
-import CompanyItem from './CompanyItem'
-import styled from 'styled-components'
+import FullPage from 'uikit/Pages/FullPage';
+import Title from 'uikit/Pages/Title';
+import React from 'react';
+import CompanyItem from './CompanyItem';
+import styled from 'styled-components';
 
 const StyledCompaniesBodyWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-`
+`;
 
 const StyledCompanyItemWrapper = styled.div`
   flex-grow: 1;
   width: 33.3%;
-`
+`;
 const StyledCompanyItem = styled.div`
   height: 100px;
   margin: 20px;
-`
+`;
 
 const Companies: React.FC = () => {
   return (
@@ -46,7 +46,7 @@ const Companies: React.FC = () => {
         </StyledCompanyItemWrapper>
       </StyledCompaniesBodyWrapper>
     </FullPage>
-  )
-}
+  );
+};
 
-export default Companies
+export default Companies;

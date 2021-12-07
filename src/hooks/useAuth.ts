@@ -1,36 +1,36 @@
-import { useWeb3React } from '@web3-react/core'
-import { InjectedConnector } from '@web3-react/injected-connector'
-import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
-import { BscConnector } from '@binance-chain/bsc-connector'
-import { ethers } from 'ethers'
-import getNodeUrl from '../utils/getRpcUrl'
-import { useCallback } from 'react'
+import { useWeb3React } from '@web3-react/core';
+import { InjectedConnector } from '@web3-react/injected-connector';
+import { WalletConnectConnector } from '@web3-react/walletconnect-connector';
+import { BscConnector } from '@binance-chain/bsc-connector';
+import { ethers } from 'ethers';
+import getNodeUrl from '../utils/getRpcUrl';
+import { useCallback } from 'react';
 
-const POLLING_INTERVAL = 12000
-const rpcUrl = getNodeUrl()
-const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10)
+const POLLING_INTERVAL = 12000;
+const rpcUrl = getNodeUrl();
+const chainId = parseInt(process.env.REACT_APP_CHAIN_ID, 10);
 
-const injected = new InjectedConnector({ supportedChainIds: [chainId] })
+const injected = new InjectedConnector({ supportedChainIds: [chainId] });
 
 const walletconnect = new WalletConnectConnector({
   rpc: { [chainId]: rpcUrl },
   qrcode: true,
   pollingInterval: POLLING_INTERVAL,
-})
+});
 
-const bscConnector = new BscConnector({ supportedChainIds: [chainId] })
+const bscConnector = new BscConnector({ supportedChainIds: [chainId] });
 
 export const connectors = {
   injected: injected,
   walletconnect: walletconnect,
   bsc: bscConnector,
-}
+};
 
 export const getLibrary = (provider): ethers.providers.Web3Provider => {
-  const library = new ethers.providers.Web3Provider(provider)
-  library.pollingInterval = POLLING_INTERVAL
-  return library
-}
+  const library = new ethers.providers.Web3Provider(provider);
+  library.pollingInterval = POLLING_INTERVAL;
+  return library;
+};
 
 /**
  * BSC Wallet requires a different sign method
@@ -38,8 +38,8 @@ export const getLibrary = (provider): ethers.providers.Web3Provider => {
  */
 export const signMessage = async (provider: any, account: string, message: string): Promise<string> => {
   if (window.BinanceChain) {
-    const { signature } = await window.BinanceChain.bnbSign(account, message)
-    return signature
+    const { signature } = await window.BinanceChain.bnbSign(account, message);
+    return signature;
   }
 
   /**
@@ -47,29 +47,29 @@ export const signMessage = async (provider: any, account: string, message: strin
    * @see https://github.com/WalletConnect/walletconnect-monorepo/issues/462
    */
   if (provider.provider?.wc) {
-    const wcMessage = ethers.utils.hexlify(ethers.utils.toUtf8Bytes(message))
-    const signature = await provider.provider?.wc.signPersonalMessage([wcMessage, account])
-    return signature
+    const wcMessage = ethers.utils.hexlify(ethers.utils.toUtf8Bytes(message));
+    const signature = await provider.provider?.wc.signPersonalMessage([wcMessage, account]);
+    return signature;
   }
 
-  return provider.getSigner(account).signMessage(message)
-}
+  return provider.getSigner(account).signMessage(message);
+};
 
 const useAuth = () => {
-  const { activate } = useWeb3React()
+  const { activate } = useWeb3React();
 
   const login = useCallback(
     (connector: any) => {
       activate(connector, (error: Error) => {
         if (error) {
-          console.log(error)
+          console.log(error);
         }
-      })
+      });
     },
     [activate],
-  )
+  );
 
-  return { login }
-}
+  return { login };
+};
 
-export default useAuth
+export default useAuth;

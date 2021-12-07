@@ -1,5 +1,5 @@
-import { FC } from 'react'
-import styled from 'styled-components'
+import { FC } from 'react';
+import styled from 'styled-components';
 
 const StyledSwapContainer = styled.div`
   background: white;
@@ -12,7 +12,7 @@ const StyledSwapContainer = styled.div`
   //temp:
   margin: auto;
   margin-top: 10px;
-`
+`;
 
 const StyledSwapHeader = styled.div`
   /* Heading 1 */
@@ -26,7 +26,7 @@ const StyledSwapHeader = styled.div`
 
   /* Dark clear */
   color: #0f2b46;
-`
+`;
 
 const StyledSwapSubHeader = styled.div`
   font-family: Roboto;
@@ -40,11 +40,11 @@ const StyledSwapSubHeader = styled.div`
 
   /* Dark clear */
   color: #0f2b46;
-`
+`;
 
 const StyledSwapHeaderWrapper = styled.div`
   padding: 15px;
-`
+`;
 
 const StyledInputWrapper = styled.div`
   background: #f5f6f7;
@@ -55,7 +55,7 @@ const StyledInputWrapper = styled.div`
   margin: 15px 0px;
   display: flex;
   align-items: center;
-`
+`;
 
 const StyledTokenHeader = styled.div`
   width: 68px;
@@ -67,7 +67,7 @@ const StyledTokenHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`
+`;
 
 const StyledTokenValue = styled.div`
   font-size: 16px;
@@ -75,11 +75,11 @@ const StyledTokenValue = styled.div`
 
   text-align: right;
   float: right;
-`
+`;
 
 const StyledRow = styled.div`
   flex: 1 1 50%;
-`
+`;
 
 const Swap: FC = () => {
   return (
@@ -107,7 +107,7 @@ const Swap: FC = () => {
         </StyledRow>
       </StyledInputWrapper>
     </StyledSwapContainer>
-  )
-}
+  );
+};
 
-export default Swap
+export default Swap;

@@ -1,23 +1,23 @@
 interface SideBarDataItem {
   // The text with the name of the tab is hidden on mobile devices.
   // TODO: multi-language
-  title: string
+  title: string;
 
   // Font-awesome icon. The final class will be `fa ${icon} fa-2x`.
-  icon: string
+  icon: string;
 
   // Specifies where the user will be redirected when navigating.
   // Automatically highlights the active tab if pathname exactly
   // matches this property. Regular expressions are not allowed.
   // See alternative property to using regular expressions.
-  to?: string
+  to?: string;
 
   // If set to true, the tab will not be active.
-  disable?: boolean
+  disable?: boolean;
 
   // Used to display the active tab when pathname does not
   // match the to property.
-  alternative?: string[]
+  alternative?: string[];
 }
 
 const SideBarDataItems: SideBarDataItem[] = [
@@ -52,6 +52,6 @@ const SideBarDataItems: SideBarDataItem[] = [
     icon: 'fa-coins',
     disable: true,
   },
-]
+];
 
-export default SideBarDataItems
+export default SideBarDataItems;

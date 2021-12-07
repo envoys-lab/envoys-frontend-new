@@ -83,6 +83,6 @@ const Tokens = [
     icon: 'https://tokens.1inch.io/0x111111111117dc0aa78b770fa6a738034120c302.png',
     contract: '0x111111111117dc0aa78b770fa6a738034120c302',
   },
-]
+];
 
-export default Tokens
+export default Tokens;
