@@ -2,22 +2,24 @@ import React, { useState } from 'react'
 import { Route, Router, Switch } from 'react-router-dom'
 import BigNumber from 'bignumber.js'
 import history from './routerHistory'
-import ResetCSS from './ResetCSS';
-import SideBar from "./components/SideBar";
-import { Web3ReactProvider } from '@web3-react/core';
-import { getLibrary } from './hooks/useAuth';
+import ResetCSS from './ResetCSS'
+import SideBar from './components/SideBar'
+import { Web3ReactProvider } from '@web3-react/core'
+import { getLibrary } from './hooks/useAuth'
 // import ConnectWallet from './components/ConnectWallet/index';
-import Modal from "./components/Modal/Modal"
+import Modal from './components/Modal/Modal'
 import { Provider as ReduxProvider } from 'react-redux'
 import { store } from './store/store'
-import Input from 'uikit/Input/Input';
-import { SideBarHiddenButton } from './components/SideBar/SideBarHidden';
-import useScreenWidth from 'hooks/useScreenWidth';
-import Header from 'components/Header';
-import Swap from 'components/Swap';
-import Companies from 'pages/Companies';
-import styled from 'styled-components';
-import Company from 'pages/Company';
+import Input from 'uikit/Input/Input'
+import { SideBarHiddenButton } from './components/SideBar/SideBarHidden'
+import useScreenWidth from 'hooks/useScreenWidth'
+import Header from 'components/Header'
+import Companies from 'pages/Companies'
+import styled from 'styled-components'
+import Company from 'pages/Company'
+
+import Swap from 'pages/Swap'
+import Pool from 'pages/Pool'
 
 // This config is required for number formatting
 BigNumber.config({
@@ -33,10 +35,10 @@ const StyledMain = styled.div`
   align-content: stretch;
   // flex-wrap: wrap;
   // flex-direction: column;
-`;
+`
 
 const App: React.FC = () => {
-  const [activeHiddenMenu, setActiveHiddenMenu] = useState(false);
+  const [activeHiddenMenu, setActiveHiddenMenu] = useState(false)
 
   return (
     <ReduxProvider store={store}>
@@ -48,9 +50,9 @@ const App: React.FC = () => {
           <StyledMain>
             <SideBar active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
 
-            <div style={{marginLeft: "2px", height: "100%", flex: "1 1 auto", flexWrap: "nowrap"}}>
+            <div style={{ marginLeft: '2px', height: '100%', flex: '1 1 auto', flexWrap: 'nowrap' }}>
               <Header active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
-              
+
               <Switch>
                 <Route path="/companies">
                   <Companies />
@@ -59,16 +61,19 @@ const App: React.FC = () => {
                 <Route path="/company/:companyId">
                   <Company />
                 </Route>
-                
 
-                <Route path="/">
-                  Coming soong...
+                <Route path="/swap/:pair">
+                  <Swap />
                 </Route>
+
+                <Route path="/pool">
+                  <Pool />
+                </Route>
+
+                <Route path="/">Coming soong...</Route>
               </Switch>
             </div>
           </StyledMain>
-
-          
         </Router>
       </Web3ReactProvider>
     </ReduxProvider>
