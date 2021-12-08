@@ -23,11 +23,13 @@ const TokenIcon = (props: TokenIconAttributes) => {
   const { token, size = 30 } = props;
   const [tokenUrl, setTokenUrl] = useState(`/assets/svg/undefined_token.svg`);
   useEffect(() => {
-    if (token.icon && existsUrl(token.icon)) {
-      setTokenUrl(token.icon);
-    } else if (existsLocal(token.contract)) {
-      setTokenUrl(token.icon);
-    }
+    setImmediate(async () => {
+      if (token.icon && existsUrl(token.icon)) {
+        setTokenUrl(token.icon);
+      } else if (existsLocal(token.contract)) {
+        setTokenUrl(token.icon);
+      }
+    });
   }, []);
 
   return <img src={tokenUrl} {...props} height={size} width={size}></img>;
