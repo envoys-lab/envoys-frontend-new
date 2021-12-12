@@ -17,6 +17,7 @@ import Company from 'pages/Company';
 
 import Swap from 'pages/Swap';
 import Pool from 'pages/Pool';
+import Farm from 'pages/Farm/Farm';
 
 // This config is required for number formatting
 BigNumber.config({
@@ -30,6 +31,7 @@ const StyledMain = styled.div`
   margin: auto;
   display: flex;
   align-content: stretch;
+  box-sizing: border-box;
   // flex-wrap: wrap;
   // flex-direction: column;
 `;
@@ -65,6 +67,9 @@ const App: React.FC = () => {
 
                 <Route path="/pool">
                   <Pool />
+                </Route>
+                <Route path="/farm">
+                  <Farm />
                 </Route>
 
                 <Route path="/">Coming soong...</Route>
