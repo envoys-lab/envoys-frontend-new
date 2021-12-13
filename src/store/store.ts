@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import navbarReducer from './company/navbar';
-import modalReducer from './modal/reducer';
 
 export const store = configureStore({
   reducer: {
-    modal: modalReducer,
     navbar: navbarReducer,
   },
 });

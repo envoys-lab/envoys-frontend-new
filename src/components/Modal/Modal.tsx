@@ -1,10 +1,8 @@
 import React, { FC, useRef } from 'react';
 import styled from 'styled-components';
-import { useSelector, useDispatch } from 'react-redux';
-import { AppDispatch, RootState } from '../../store/store';
-import { modalCloseAction } from '../../store/modal/reducer';
-import ModalList, { Modals } from './List';
 import useOutsideAlerter from 'hooks/useOutsideAlerter';
+import { useModal } from 'hooks/useModal';
+import { ModalContext } from './ModalContext';
 
 export const StyledBack = styled.div`
   position: fixed;
@@ -43,25 +41,20 @@ const StyledModalHeader = styled.div`
 `;
 
 const Modal: FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const wrapperRef = useRef(null);
+  const { modalContent, handleModal, modal } = React.useContext(ModalContext);
 
-  useOutsideAlerter(wrapperRef, () => dispatch(modalCloseAction()));
-
-  const info = useSelector<RootState, number>((state) => state.modal.view);
-  const CurrentPage = Modals[info].view;
+  useOutsideAlerter(wrapperRef, () => handleModal(undefined));
+  const context = useModal();
 
   const view = (
     <StyledBack>
       <StyledModalWrapper>
-        <StyledModalBox ref={wrapperRef}>
-          <StyledModalHeader style={{ fontSize: '16px' }}>{Modals[info].title}</StyledModalHeader>
-          <CurrentPage />
-        </StyledModalBox>
+        <StyledModalBox ref={wrapperRef}>{modalContent}</StyledModalBox>
       </StyledModalWrapper>
     </StyledBack>
   );
-  return info !== ModalList.Unknown || false ? view : <input type="hidden" value="hidden-modal-page-here" />;
+  return modal ? view : <input type="hidden" value="hidden-modal-page-here" />;
 };
 
 export default Modal;

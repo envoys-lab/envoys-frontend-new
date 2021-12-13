@@ -17,6 +17,9 @@ import Company from 'pages/Company';
 
 import Swap from 'pages/Swap';
 import Pool from 'pages/Pool';
+import { useModal } from 'hooks/useModal';
+import { ModalContext } from 'components/Modal/ModalContext';
+import ModalExample from 'pages/ModalExample';
 
 // This config is required for number formatting
 BigNumber.config({
@@ -36,43 +39,52 @@ const StyledMain = styled.div`
 
 const App: React.FC = () => {
   const [activeHiddenMenu, setActiveHiddenMenu] = useState(false);
+  // const [_, setModal] = useModal();
+  // const [modalState, setModalState] = useState();
+  const [modal, handleModal, modalContent] = useModal();
 
   return (
     <ReduxProvider store={store}>
-      <Web3ReactProvider getLibrary={getLibrary}>
-        <Modal />
+      <ModalContext.Provider value={{ modal, handleModal, modalContent }}>
+        <Web3ReactProvider getLibrary={getLibrary}>
+          <ModalContext.Consumer>{(value) => <Modal />}</ModalContext.Consumer>
 
-        <Router history={history}>
-          <ResetCSS></ResetCSS>
-          <StyledMain>
-            <SideBar active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
+          <Router history={history}>
+            <ResetCSS></ResetCSS>
+            <StyledMain>
+              <SideBar active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
 
-            <div style={{ marginLeft: '2px', height: '100%', flex: '1 1 auto', flexWrap: 'nowrap' }}>
-              <Header active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
+              <div style={{ marginLeft: '2px', height: '100%', flex: '1 1 auto', flexWrap: 'nowrap' }}>
+                <Header active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
 
-              <Switch>
-                <Route path="/companies">
-                  <Companies />
-                </Route>
+                <Switch>
+                  <Route path="/companies">
+                    <Companies />
+                  </Route>
 
-                <Route path="/company/:companyId">
-                  <Company />
-                </Route>
+                  <Route path="/company/:companyId">
+                    <Company />
+                  </Route>
 
-                <Route path="/swap/:pair">
-                  <Swap />
-                </Route>
+                  <Route path="/swap/:pair">
+                    <Swap />
+                  </Route>
 
-                <Route path="/pool">
-                  <Pool />
-                </Route>
+                  <Route path="/pool">
+                    <Pool />
+                  </Route>
 
-                <Route path="/">Coming soong...</Route>
-              </Switch>
-            </div>
-          </StyledMain>
-        </Router>
-      </Web3ReactProvider>
+                  <Route path="/modalExample">
+                    <ModalExample />
+                  </Route>
+
+                  <Route path="/">Coming soong...</Route>
+                </Switch>
+              </div>
+            </StyledMain>
+          </Router>
+        </Web3ReactProvider>
+      </ModalContext.Provider>
     </ReduxProvider>
   );
 };
