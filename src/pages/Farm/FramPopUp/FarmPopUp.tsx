@@ -79,6 +79,9 @@ const WalletCard = styled.div<PopUpProps>`
   span {
     margin-top: 20px;
   }
+  img {
+    min-width: 40px;
+  }
 `;
 
 const PopUpCardFooter = styled.div<PopUpProps>`
