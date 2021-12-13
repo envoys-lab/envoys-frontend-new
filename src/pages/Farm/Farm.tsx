@@ -23,6 +23,7 @@ import {
 import ViewBlockIcon from './FarmMenu/ViewBlockIcon';
 import ViewListIcon from './FarmMenu/ViewListIcon';
 import FarmList from './FarmList/FarmList';
+import FarmPopUp from './FramPopUp/FarmPopUp';
 
 const Farm: React.FC = () => {
   const [selectedBtn, setSelectedBtn] = React.useState<boolean>(false);
@@ -30,6 +31,7 @@ const Farm: React.FC = () => {
   const [switched, setSwitched] = React.useState<boolean>(false);
   const [secondSwitched, setSecondSwitched] = React.useState<boolean>(false);
   const [sort, setSort] = React.useState<boolean>(false);
+  const [openWalletsPopUp, setOpenWalletsPopUp] = React.useState<boolean>(false);
   const sortItems = ['ARP', 'Multiplier', 'Earned', 'Liquiduty'];
   return (
     <StyledFarmFlex1>

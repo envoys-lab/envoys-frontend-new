@@ -68,6 +68,7 @@ const App: React.FC = () => {
                 <Route path="/pool">
                   <Pool />
                 </Route>
+
                 <Route path="/farm">
                   <Farm />
                 </Route>
