@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { Flex } from '../../simple_styles';
 
 const IButtonStyle = styled.button`
-  margin: 0 0 0 17px;
   padding: 13px 26px;
   background: #2261da;
   color: #fff;
@@ -14,7 +13,6 @@ const IButtonStyle = styled.button`
 `;
 
 const IButtonStyleD = styled.button`
-  margin: 0 0 0 68px;
   padding: 13px 42px;
   background: #2261da;
   color: #fff;

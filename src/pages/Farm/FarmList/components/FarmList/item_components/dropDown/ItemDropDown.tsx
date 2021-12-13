@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex } from '../../simple_styles';
+import { Flex, Flex2 } from '../../simple_styles';
 import Earned from './Earned';
 import IButton from './IButton';
 import Links from './Links';
@@ -27,11 +27,11 @@ const ItemDropDown: React.FC<EarnedType> = (props) => {
     <ItemEndStyle show={props.show}>
       <Flex align="center" justify="space-between">
         <Links />
-        <Flex>
+        <Flex2 width="49%">
           <Earned earned={props.earned} />
           <IButton disabled={true} text="Harvest" />
           <IButton disabled={false} text="Start Farming" />
-        </Flex>
+        </Flex2>
       </Flex>
     </ItemEndStyle>
   );
