@@ -23,6 +23,7 @@ type InfoArrayList = {
     liqudity: string;
     multiplier: string;
   };
+  setOpenWalletsPopUp?: React.Dispatch<React.SetStateAction<any>>;
 };
 
 const Item: React.FC<InfoArrayList> = (props) => {
@@ -35,7 +36,7 @@ const Item: React.FC<InfoArrayList> = (props) => {
   return (
     <ItemStyle dropdown={dropwDown}>
       <ItemTop info={props.info} clickDropDown={() => dropDownHandler()} />
-      <ItemDropDown earned={props.info.earned} show={dropwDown} />
+      <ItemDropDown earned={props.info.earned} show={dropwDown} setOpenWalletsPopUp={props.setOpenWalletsPopUp} />
     </ItemStyle>
   );
 };

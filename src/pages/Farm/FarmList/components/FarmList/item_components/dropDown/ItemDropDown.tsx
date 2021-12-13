@@ -10,6 +10,7 @@ type ShowProps = {
 };
 
 const ItemEndStyle = styled.div<ShowProps>`
+  box-sizing: border-box;
   padding: ${(props) => (props.show ? '10px 80px 10px 40px' : '0 80px 0 40px')};
   height: ${(props) => (props.show ? 'auto' : '0px')};
   opacity: ${(props) => (props.show ? '1' : '0')};
@@ -20,6 +21,7 @@ const ItemEndStyle = styled.div<ShowProps>`
 type EarnedType = {
   earned: number | string;
   show: boolean;
+  setOpenWalletsPopUp?: React.Dispatch<React.SetStateAction<any>>;
 };
 
 const ItemDropDown: React.FC<EarnedType> = (props) => {
@@ -30,7 +32,13 @@ const ItemDropDown: React.FC<EarnedType> = (props) => {
         <Flex2 width="49%">
           <Earned earned={props.earned} />
           <IButton disabled={true} text="Harvest" />
-          <IButton disabled={false} text="Start Farming" />
+          <IButton
+            disabled={false}
+            text="Start Farming"
+            onClick={() => {
+              props.setOpenWalletsPopUp(true);
+            }}
+          />
         </Flex2>
       </Flex>
     </ItemEndStyle>

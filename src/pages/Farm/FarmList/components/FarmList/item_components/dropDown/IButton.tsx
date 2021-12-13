@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex } from '../../simple_styles';
 
 const IButtonStyle = styled.button`
   padding: 13px 26px;
@@ -26,13 +25,14 @@ const IButtonStyleD = styled.button`
 type btnType = {
   disabled: boolean;
   text: string;
+  onClick?: React.Dispatch<React.SetStateAction<any>>;
 };
 
 const IButton: React.FC<btnType> = (props) => {
   if (props.disabled) {
     return <IButtonStyleD>{props.text}</IButtonStyleD>;
   }
-  return <IButtonStyle>{props.text}</IButtonStyle>;
+  return <IButtonStyle onClick={props.onClick}>{props.text}</IButtonStyle>;
 };
 
 export default IButton;

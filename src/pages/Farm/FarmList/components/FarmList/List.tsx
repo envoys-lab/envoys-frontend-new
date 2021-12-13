@@ -4,12 +4,16 @@ import Item from './Item';
 import icon1 from '../../assets/usdc1.svg';
 import icon2 from '../../assets/usdc2.svg';
 
+interface Props {
+  setOpenWalletsPopUp?: React.Dispatch<React.SetStateAction<any>>;
+}
+
 const ListStyle = styled.ul`
   padding: 0;
   list-style: none;
 `;
 
-const List: React.FC = () => {
+const List: React.FC<Props> = ({ setOpenWalletsPopUp }) => {
   const [infoList, setinfoList] = React.useState([
     {
       name: ['ETH', 'USDC'],
@@ -70,7 +74,7 @@ const List: React.FC = () => {
   return (
     <ListStyle>
       {infoList.map((item, index) => {
-        return <Item key={index} info={item} />;
+        return <Item key={index} info={item} setOpenWalletsPopUp={setOpenWalletsPopUp} />;
       })}
     </ListStyle>
   );
