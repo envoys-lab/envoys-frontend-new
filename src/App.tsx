@@ -17,6 +17,7 @@ import Company from 'pages/Company';
 
 import Swap from 'pages/Swap';
 import Pool from 'pages/Pool';
+import KYS from 'pages/KYC/KYS';
 
 // This config is required for number formatting
 BigNumber.config({
@@ -65,6 +66,9 @@ const App: React.FC = () => {
 
                 <Route path="/pool">
                   <Pool />
+                </Route>
+                <Route path="/kys">
+                  <KYS />
                 </Route>
 
                 <Route path="/">Coming soong...</Route>
