@@ -85,7 +85,14 @@ const Farm: React.FC = () => {
           </StyledSort>
         </StyledFarmFlex5>
       </StyledFarmFlex3>
-      <FarmList view={view} sort={sort} secondSwitched={secondSwitched} switched={switched} />
+      <FarmList
+        view={view}
+        sort={sort}
+        secondSwitched={secondSwitched}
+        switched={switched}
+        setOpenWalletsPopUp={setOpenWalletsPopUp}
+      />
+      <FarmPopUp open={openWalletsPopUp} setOpenWalletsPopUp={setOpenWalletsPopUp} />
     </StyledFarmFlex1>
   );
 };

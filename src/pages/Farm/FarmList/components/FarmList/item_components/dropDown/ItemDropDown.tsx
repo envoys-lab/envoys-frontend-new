@@ -32,7 +32,7 @@ const ItemDropDown: React.FC<EarnedType> = (props) => {
         <Flex2 width="49%">
           <Earned earned={props.earned} />
           <IButton disabled={true} text="Harvest" margin="0 20px" />
-          <IButton disabled={false} text="Start Farming" margin="0" />
+          <IButton disabled={false} text="Start Farming" margin="0" onClick={() => props.setOpenWalletsPopUp(true)} />
         </Flex2>
       </Flex>
     </ItemEndStyle>

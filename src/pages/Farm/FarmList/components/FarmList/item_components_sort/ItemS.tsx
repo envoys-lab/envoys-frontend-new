@@ -47,6 +47,7 @@ type InfoArrayList = {
     liqudity: string;
     multiplier: string;
   };
+  setOpenWalletsPopUp: React.Dispatch<React.SetStateAction<any>>;
 };
 
 const Mult = styled(ItemOptionTextStyle)`
@@ -86,7 +87,7 @@ const ItemS: React.FC<InfoArrayList> = (props) => {
         <Earned earned={props.info.earned} />
         <IButton disabled={true} text="Harvest" margin="0" />
       </Flex>
-      <NewBtn disabled={false} text="Start Farming" margin="0" />
+      <NewBtn disabled={false} text="Start Farming" margin="0" onClick={() => props.setOpenWalletsPopUp(true)} />
 
       <Flex onClick={() => setDropwDown((value) => !value)} justify="center" align="center" margin="10px 0 0 0">
         <ShowMoreText>Show datails</ShowMoreText>

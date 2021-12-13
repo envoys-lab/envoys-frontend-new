@@ -14,11 +14,12 @@ const IButtonStyleD = styled(ButtonStyle)<BtnType>`
   align-self: center;
 `;
 
-type BtnType = {
-  disabled: boolean;
-  text: string;
-  margin: string;
-};
+interface BtnType {
+  disabled?: boolean;
+  text?: string;
+  margin?: string;
+  onClick?: any;
+}
 
 const IButton: React.FC<BtnType> = (props) => {
   if (props.disabled) {

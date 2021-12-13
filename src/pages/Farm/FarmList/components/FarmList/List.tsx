@@ -23,6 +23,7 @@ type Props = {
   switched: boolean;
   secondSwitched: boolean;
   sort: boolean;
+  setOpenWalletsPopUp: React.Dispatch<React.SetStateAction<any>>;
 };
 
 const List: React.FC<Props> = (props) => {
@@ -87,7 +88,7 @@ const List: React.FC<Props> = (props) => {
     return (
       <ListStyleS>
         {infoList.map((item, index) => {
-          return <ItemS key={index} info={item} />;
+          return <ItemS key={index} info={item} setOpenWalletsPopUp={props.setOpenWalletsPopUp} />;
         })}
       </ListStyleS>
     );
@@ -95,7 +96,7 @@ const List: React.FC<Props> = (props) => {
     return (
       <ListStyle>
         {infoList.map((item, index) => {
-          return <Item key={index} info={item} />;
+          return <Item key={index} info={item} setOpenWalletsPopUp={props.setOpenWalletsPopUp} />;
         })}
       </ListStyle>
     );
