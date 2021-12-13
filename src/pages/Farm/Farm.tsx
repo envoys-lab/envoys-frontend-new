@@ -83,7 +83,7 @@ const Farm: React.FC = () => {
           </StyledSort>
         </StyledFarmFlex5>
       </StyledFarmFlex3>
-      <FarmList />
+      <FarmList view={view} sort={sort} secondSwitched={secondSwitched} switched={switched} />
     </StyledFarmFlex1>
   );
 };

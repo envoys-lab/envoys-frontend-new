@@ -3,13 +3,29 @@ import styled from 'styled-components';
 import Item from './Item';
 import icon1 from '../../assets/usdc1.svg';
 import icon2 from '../../assets/usdc2.svg';
+import ItemS from './item_components_sort/ItemS';
 
 const ListStyle = styled.ul`
   padding: 0;
   list-style: none;
 `;
 
-const List: React.FC = () => {
+const ListStyleS = styled.ul`
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+`;
+
+type Props = {
+  view: boolean;
+  switched: boolean;
+  secondSwitched: boolean;
+  sort: boolean;
+};
+
+const List: React.FC<Props> = (props) => {
   const [infoList, setinfoList] = React.useState([
     {
       name: ['ETH', 'USDC'],
@@ -67,13 +83,23 @@ const List: React.FC = () => {
     },
   ]);
 
-  return (
-    <ListStyle>
-      {infoList.map((item, index) => {
-        return <Item key={index} info={item} />;
-      })}
-    </ListStyle>
-  );
+  if (props.view) {
+    return (
+      <ListStyleS>
+        {infoList.map((item, index) => {
+          return <ItemS key={index} info={item} />;
+        })}
+      </ListStyleS>
+    );
+  } else {
+    return (
+      <ListStyle>
+        {infoList.map((item, index) => {
+          return <Item key={index} info={item} />;
+        })}
+      </ListStyle>
+    );
+  }
 };
 
 export default List;

@@ -22,9 +22,10 @@ const Links: React.FC = () => {
     <Flex direction="column">
       {links.map((item, index) => {
         return (
-          <ItemLink href="#" key={index}>
-            {item} <LinkImg src={icon} />
-          </ItemLink>
+          <Flex key={index} justify="center">
+            <ItemLink href="#">{item}</ItemLink>
+            <LinkImg src={icon} />
+          </Flex>
         );
       })}
     </Flex>

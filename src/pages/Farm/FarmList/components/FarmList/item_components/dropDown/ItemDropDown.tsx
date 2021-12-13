@@ -29,8 +29,8 @@ const ItemDropDown: React.FC<EarnedType> = (props) => {
         <Links />
         <Flex2 width="49%">
           <Earned earned={props.earned} />
-          <IButton disabled={true} text="Harvest" />
-          <IButton disabled={false} text="Start Farming" />
+          <IButton disabled={true} text="Harvest" margin="0 20px" />
+          <IButton disabled={false} text="Start Farming" margin="0" />
         </Flex2>
       </Flex>
     </ItemEndStyle>

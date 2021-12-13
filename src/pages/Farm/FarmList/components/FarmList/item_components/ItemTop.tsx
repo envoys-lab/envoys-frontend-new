@@ -40,7 +40,7 @@ const ItemTop: React.FC<InfoArrayList> = (props) => {
       <Flex align="center">
         <Images imgs={props.info.img} />
         <ItemTitle titles={props.info.name} />
-        <Percent text={props.info.percent} />
+        <Percent text={props.info.percent} margin="0" />
         <ItemOptions
           earned={props.info.earned}
           APR={props.info.APR}

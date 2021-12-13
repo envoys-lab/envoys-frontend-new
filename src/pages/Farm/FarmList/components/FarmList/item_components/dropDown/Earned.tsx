@@ -2,7 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Flex } from '../../simple_styles';
 
-const EarnedStyle = styled.div``;
+const EarnedStyle = styled.div`
+  align-self: flex-start;
+`;
 
 const EarnedTextStyle = styled.p`
   padding: 0;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 type Props = {
   justify?: string;
   align?: string;
-  margin?: string;
+  margin?: string | '0';
   flex?: number;
   direction?: string;
   col?: string;
@@ -18,6 +18,7 @@ export const Flex = styled.div<Props>`
   justify-content: ${(props) => props.justify || 'stretch'};
   align-items: ${(props) => props.align || 'stretch'};
   flex-direction: ${(props) => props.direction || 'row'};
+  margin: ${(props) => props.margin};
 `;
 
 export const Flex2 = styled.div<Props>`
@@ -37,4 +38,22 @@ export const Container = styled.div`
   max-width: 1170px;
   margin: 0 auto;
   padding: 15px;
+`;
+
+export const ButtonStyle = styled.button`
+  padding: 13px 42px;
+  background: #2261da;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+`;
+
+export const ItemOptionTextStyle = styled.p`
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 12px;
+  color: #133d65;
+  text-transform: capitalize;
+  margin: 4px 0;
 `;
