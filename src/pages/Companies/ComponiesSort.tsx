@@ -44,6 +44,11 @@ const ComponiesSort:React.FC = () => {
     const [iconLinks, setIconLinks] = React.useState<string[]>(['ICO', 'STO', 'IEO'])
 
     const linkSetting = (item: string) => {
+        if(item === 'События'){
+            return 'events'
+        }else if(item === 'Тренды'){
+            return 'trending'
+        }
         return item.replace(/\s+/g, '').toLowerCase()
     }
 
