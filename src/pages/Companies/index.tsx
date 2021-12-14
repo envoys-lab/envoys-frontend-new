@@ -2,6 +2,9 @@ import FullPage from 'uikit/Pages/FullPage';
 import React from 'react';
 import CompanyItem from './CompanyItem';
 import styled from 'styled-components';
+import ComponiesSort from './ComponiesSort';
+import { Flex } from 'uikit/Flex/Flex';
+import Title from 'uikit/Pages/Title';
 
 const StyledCompaniesBodyWrapper = styled.div`
   display: grid;
@@ -27,7 +30,8 @@ const StyledCompanyItem = styled.div`
 const Companies: React.FC = () => {
   return (
     <FullPage>
-      <h4 className="title">Hot and tranding Blockchain companies</h4>
+      <Title>Hot and tranding Blockchain companies</Title>
+      <ComponiesSort/>
 
       <StyledCompaniesBodyWrapper>
         <CompanyItem name="Comany name" />
