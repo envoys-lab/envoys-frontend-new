@@ -24,8 +24,6 @@ export const Flex = styled.div<Props>`
 export const Flex2 = styled.div<Props>`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: ${(props) => props.width || '100%'};
 `;
 export const Grid = styled.div<Props>`
   display: grid;
