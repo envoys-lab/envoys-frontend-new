@@ -11,7 +11,7 @@ type ShowProps = {
 
 const ItemEndStyle = styled.div<ShowProps>`
   box-sizing: border-box;
-  padding: ${(props) => (props.show ? '10px 80px 10px 40px' : '0 80px 0 40px')};
+  padding: ${(props) => (props.show ? '30px 80px 36px 40px' : '0 80px 0 40px')};
   height: ${(props) => (props.show ? 'auto' : '0px')};
   opacity: ${(props) => (props.show ? '1' : '0')};
   visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
@@ -28,7 +28,7 @@ const ItemDropDown: React.FC<EarnedType> = (props) => {
   return (
     <ItemEndStyle show={props.show}>
       <Flex align="center" justify="space-between">
-        <Links />
+        <Links justifyLinks='flex-start'/>
         <Flex2 width="49%">
           <Earned earned={props.earned} />
           <IButton disabled={true} text="Harvest" margin="0 20px" />

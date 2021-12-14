@@ -9,21 +9,26 @@ const ItemLink = styled.a`
   font-size: 14px;
   color: #2261da;
   text-decoration: none;
+  margin: 6px 0;
 `;
 
 const LinkImg = styled.img`
   width: 18px;
 `;
 
-const Links: React.FC = () => {
+type Props = {
+  justifyLinks: string
+}
+
+const Links: React.FC<Props> = (props) => {
   const [links, setLinks] = React.useState<string[]>(['Get ETH-USDC', 'View Contract', 'See Pair Info']);
 
   return (
     <Flex direction="column">
       {links.map((item, index) => {
         return (
-          <Flex key={index} justify="center">
-            <ItemLink href="#">{item}</ItemLink>
+          <Flex key={index} justify={props.justifyLinks}>
+            <ItemLink href="#" target="_blank">{item}</ItemLink>
             <LinkImg src={icon} />
           </Flex>
         );

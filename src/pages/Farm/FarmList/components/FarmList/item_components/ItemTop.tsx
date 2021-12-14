@@ -8,10 +8,17 @@ import ItemTitle from './ItemTitle';
 import icon from '../../../assets/dropdown_dwn.svg';
 import { DropDownIcon } from './dropDown/DropDownIcon';
 
-const ItemStartStyle = styled.div`
+
+type BorderS = {
+  dropDown: boolean
+}
+
+const ItemStartStyle = styled.div<BorderS>`
   cursor: pointer;
   position: relative;
-  border-bottom: 1px solid #f9f9f9;
+  padding: 18px 0;
+  transition: .3s;
+  border-bottom: 1px solid ${props => props.dropDown?'#E5E5E5':'#F9F9F9'};
 `;
 
 type InfoArrayList = {
@@ -36,7 +43,7 @@ const ItemTop: React.FC<InfoArrayList> = (props) => {
   };
 
   return (
-    <ItemStartStyle onClick={clickDD}>
+    <ItemStartStyle onClick={clickDD} dropDown={dropDown}>
       <Flex align="center">
         <Images imgs={props.info.img} />
         <ItemTitle titles={props.info.name} />
