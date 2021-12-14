@@ -8,17 +8,16 @@ import ItemTitle from './ItemTitle';
 import icon from '../../../assets/dropdown_dwn.svg';
 import { DropDownIcon } from './dropDown/DropDownIcon';
 
-
 type BorderS = {
-  dropDown: boolean
-}
+  dropDown: boolean;
+};
 
 const ItemStartStyle = styled.div<BorderS>`
   cursor: pointer;
   position: relative;
-  padding: 18px 0;
-  transition: .3s;
-  border-bottom: 1px solid ${props => props.dropDown?'#E5E5E5':'#F9F9F9'};
+  padding: 10px 0;
+  transition: 0.3s;
+  border-bottom: 1px solid ${(props) => (props.dropDown ? '#E5E5E5' : '#F9F9F9')};
 `;
 
 type InfoArrayList = {
