@@ -34,6 +34,9 @@ export const StyledFarmFlex3 = styled.div`
 export const StyledFarmFlex4 = styled.div`
   display: flex;
   flex-direction: column;
+  a {
+    color: #2261da;
+  }
 `;
 export const StyledFarmFlex5 = styled.div`
   display: flex;
