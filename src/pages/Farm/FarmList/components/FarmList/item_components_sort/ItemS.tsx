@@ -29,7 +29,7 @@ const ItemStyle = styled.li<PropsDD>`
 const ShowMoreText = styled.p`
   margin: 0 5px;
   font-family: Roboto;
-  font-weight: normal;
+  font-weight: 500;
   font-size: 12px;
   color: #133d65;
   cursor: pointer;
@@ -90,7 +90,7 @@ const ItemS: React.FC<InfoArrayList> = (props) => {
       <NewBtn disabled={false} text="Start Farming" margin="0" onClick={() => props.setOpenWalletsPopUp(true)} />
 
       <Flex onClick={() => setDropwDown((value) => !value)} justify="center" align="center" margin="10px 0 0 0">
-        <ShowMoreText>Show datails</ShowMoreText>
+        <ShowMoreText>{dropwDown?'Hide':'Datails'}</ShowMoreText>
         <DropDownIcon dropdown={dropwDown} src={icon} />
       </Flex>
 
