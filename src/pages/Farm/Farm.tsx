@@ -24,15 +24,18 @@ import ViewBlockIcon from './FarmMenu/ViewBlockIcon';
 import ViewListIcon from './FarmMenu/ViewListIcon';
 import FarmList from './FarmList/FarmList';
 import FarmPopUp from './FramPopUp/FarmPopUp';
-
-const Farm: React.FC = () => {
+interface Props {
+  sort?: boolean;
+  setSort?: React.Dispatch<React.SetStateAction<any>>;
+}
+const Farm: React.FC<Props> = ({ sort, setSort }) => {
   const [selectedBtn, setSelectedBtn] = React.useState<boolean>(false);
   const [view, setView] = React.useState<boolean>(false);
   const [switched, setSwitched] = React.useState<boolean>(false);
   const [secondSwitched, setSecondSwitched] = React.useState<boolean>(false);
-  const [sort, setSort] = React.useState<boolean>(false);
+  const [sortItem, setSortItem] = React.useState<string>('Hot');
   const [openWalletsPopUp, setOpenWalletsPopUp] = React.useState<boolean>(false);
-  const sortItems = ['ARP', 'Multiplier', 'Earned', 'Liquiduty'];
+  const sortItems = ['ARP', 'Multiplier', 'Earned', 'Liquiduty', 'Hot'];
   return (
     <StyledFarmFlex1>
       <StyledFarmFlex2>
@@ -73,12 +76,14 @@ const Farm: React.FC = () => {
             sort={sort}
           >
             <span>Sort by:</span>
-            <span>Hot</span>
+            <span className="sortItem">{sortItem}</span>
             <img src={arrowDown} alt="" />
             {sort && (
               <StyledSortList onClick={(e) => e.stopPropagation()}>
                 {sortItems.map((item, index) => (
-                  <StyledSortListItem key={index}>{item}</StyledSortListItem>
+                  <StyledSortListItem key={index} onClick={() => setSortItem(item)}>
+                    {item}
+                  </StyledSortListItem>
                 ))}
               </StyledSortList>
             )}

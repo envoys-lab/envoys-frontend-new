@@ -197,7 +197,6 @@ export const StyledSort = styled.div<Props>`
   padding: 10px 15px;
   background-color: #f9f9f9;
   border-radius: 14px;
-  width: 126px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -216,6 +215,14 @@ export const StyledSort = styled.div<Props>`
       height: 18px;
     }
   }
+  .sortItem {
+    margin: 0 10px;
+  }
+  ${(props) =>
+    props.sort &&
+    css`
+      border-radius: 14px 14px 0 0;
+    `}
 `;
 export const StyledSortList = styled.ul<Props>`
   list-style: none;

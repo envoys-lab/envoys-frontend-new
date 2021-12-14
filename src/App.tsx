@@ -38,7 +38,7 @@ const StyledMain = styled.div`
 
 const App: React.FC = () => {
   const [activeHiddenMenu, setActiveHiddenMenu] = useState(false);
-
+  const [sort, setSort] = React.useState<boolean>(false);
   return (
     <ReduxProvider store={store}>
       <Web3ReactProvider getLibrary={getLibrary}>
@@ -49,7 +49,10 @@ const App: React.FC = () => {
           <StyledMain>
             <SideBar active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
 
-            <div style={{ marginLeft: '2px', height: '100%', flex: '1 1 auto', flexWrap: 'nowrap' }}>
+            <div
+              style={{ marginLeft: '2px', height: '100%', flex: '1 1 auto', flexWrap: 'nowrap' }}
+              onClick={() => setSort(false)}
+            >
               <Header active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
 
               <Switch>
@@ -70,7 +73,7 @@ const App: React.FC = () => {
                 </Route>
 
                 <Route path="/farm">
-                  <Farm />
+                  <Farm sort={sort} setSort={setSort} />
                 </Route>
 
                 <Route path="/">Coming soong...</Route>
