@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import companyLogo from './icons/logo_company.svg';
 
 const StyledCompanyItem = styled.div`
   padding: 10px;
@@ -11,11 +12,35 @@ const StyledCompanyItem = styled.div`
   height: 110px;
   max-width: 100%;
   display: flex;
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    border-radius: 0 0 14px 14px;
+    background: radial-gradient(715.02% 629.2% at 45% 420.45%, #f48020 0%, rgba(255, 255, 255, 0) 65%);
+    transition: all 0.5s;
+  }
+  &:hover {
+    &::after {
+      opacity: 1;
+    }
+  }
 `;
 
 const StyledCompnayName = styled.span`
   margin-left: 25px;
   margin-top: 21px;
+  p {
+    margin-bottom: 5px;
+    &::last-child {
+      margin-bottom: 0;
+    }
+  }
 `;
 
 const StyledRateWrapper = styled.div`
@@ -74,11 +99,7 @@ const CompanyItem: React.FC<{
   return (
     <Link to={'/company/' + 1}>
       <StyledCompanyItem>
-        <StyledImage
-          width="40px"
-          height="40px"
-          src="https://img.favpng.com/23/4/20/company-corporation-building-icon-png-favpng-xcyQpeSUspUX1REZD4KtbisrU.jpg"
-        />
+        <StyledImage width="40px" height="40px" src={companyLogo} />
         <StyledCompnayName>
           <p>{finishedName}</p>
           <p style={{ color: statusColor, fontSize: '14px', lineHeight: '16px' }}>{statusString}</p>
