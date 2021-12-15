@@ -98,7 +98,7 @@ export const PopUpWrapper = styled.div<Props>`
   bottom: -20px;
   transform: translateY(100%);
   max-width: 370px;
-  z-index: 10;
+  z-index: 30;
   .flex {
     display: flex;
     flex-direction: column;
