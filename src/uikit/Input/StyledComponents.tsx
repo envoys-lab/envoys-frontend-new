@@ -30,11 +30,17 @@ export const SearchInput = styled.input`
   background-color: transparent;
   border: none;
   outline: none;
-  padding: 0 0 0 27px;
+  padding: 0 10px 0 27px;
   background-image: url(${searchIcon});
   background-position: left;
   background-repeat: no-repeat;
-  width: 65%;
+  color: #133d65;
+  width: 70%;
+  font-size: 16px;
+  &::placeholder {
+    color: #0f2b46;
+    opacity: 0.3;
+  }
 `;
 
 export const CurrencyBtn = styled.div<Props>`

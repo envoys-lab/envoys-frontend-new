@@ -27,9 +27,21 @@ const Input: React.FC<Props> = ({ children, activeSearchBtn, setActiveSearchBtn 
   const [selectedGas, setSelectedGas] = React.useState<number>(2);
   const [selectedSlip, setSelectedSlip] = React.useState<number>(2);
   const [switcherChecked, setSwitcherChecked] = React.useState(false);
+  const [searchInput, setSearchInput] = React.useState<string>('');
+
+  function handleInputChange(e) {
+    setSearchInput(e.target.value);
+  }
+
   return (
     <InputWrapper>
-      <SearchInput type="search" placeholder="Search by account, token,ENS..." />
+      <SearchInput
+        type="search"
+        placeholder="Search by account, token,ENS..."
+        value={searchInput}
+        onChange={handleInputChange}
+      />
+
       <div className="search_menu" onClick={(e) => e.stopPropagation()}>
         <CurrencyBtn
           activeSearchBtn={activeSearchBtn}
