@@ -1,9 +1,15 @@
 import React, { FC, Dispatch, SetStateAction } from 'react';
 import { SideBarHiddenButton } from 'components/SideBar/SideBarHidden';
-import Input from 'uikit/Input/Input';
 import useScreenWidth from 'hooks/useScreenWidth';
+import Input from 'uikit/Input/Input';
 
-const Header: FC<{ active: boolean; setActive: Dispatch<SetStateAction<boolean>> }> = ({ active, setActive }) => {
+interface Props {
+  active?: boolean;
+  setActive?: React.Dispatch<React.SetStateAction<any>>;
+  activeSearchBtn?: number;
+  setActiveSearchBtn?: React.Dispatch<React.SetStateAction<any>>;
+}
+const Header: FC<Props> = ({ active, setActive, activeSearchBtn, setActiveSearchBtn }) => {
   const width = useScreenWidth();
 
   return (
@@ -13,7 +19,7 @@ const Header: FC<{ active: boolean; setActive: Dispatch<SetStateAction<boolean>>
           <SideBarHiddenButton active={active} setActive={setActive}></SideBarHiddenButton>
         </div>
       )}
-      <Input placeholder="Search by account, token, ENS" />
+      <Input activeSearchBtn={activeSearchBtn} setActiveSearchBtn={setActiveSearchBtn} />
     </div>
   );
 };
