@@ -13,7 +13,7 @@ interface Props {
 export const StyledFarmFlex1 = styled.div<Props>`
   background-color: #fff;
   width: 96%;
-  padding: 10px 30px;
+  padding: 10px 15px;
   margin: 0 auto;
   border-radius: 28px;
   font-size: 12px;
@@ -29,6 +29,7 @@ export const StyledFarmFlex3 = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 15px;
   margin-bottom: 30px;
 `;
 export const StyledFarmFlex4 = styled.div`

@@ -39,6 +39,7 @@ const StyledMain = styled.div`
 const App: React.FC = () => {
   const [activeHiddenMenu, setActiveHiddenMenu] = useState(false);
   const [sort, setSort] = React.useState<boolean>(false);
+  const [activeSearchBtn, setActiveSearchBtn] = React.useState<number>(0);
   return (
     <ReduxProvider store={store}>
       <Web3ReactProvider getLibrary={getLibrary}>
@@ -51,9 +52,17 @@ const App: React.FC = () => {
 
             <div
               style={{ marginLeft: '2px', height: '100%', flex: '1 1 auto', flexWrap: 'nowrap' }}
-              onClick={() => setSort(false)}
+              onClick={() => {
+                setSort(false);
+                setActiveSearchBtn(0);
+              }}
             >
-              <Header active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
+              <Header
+                active={activeHiddenMenu}
+                setActive={setActiveHiddenMenu}
+                activeSearchBtn={activeSearchBtn}
+                setActiveSearchBtn={setActiveSearchBtn}
+              />
 
               <Switch>
                 <Route path="/companies">

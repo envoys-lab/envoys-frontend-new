@@ -43,9 +43,9 @@ const SideBarDataItems: SideBarDataItem[] = [
     to: '/swap/ETH-USDT',
   },
   {
-    title: 'Pool',
+    title: 'Farm',
     icon: 'fa-hotdog',
-    to: '/pool',
+    to: '/farm',
   },
   {
     title: 'Finance',
