@@ -4,6 +4,7 @@ import Switch from 'react-switch';
 import Tokens from '../../tokens';
 
 import '../app.scss';
+import Schedule from './Schedule';
 
 const speedItems = ['Standard (5)', 'Fast (6)', 'Instant (7)'];
 const toleranceItems = ['0.1%', '0.5%', '1.0%'];
@@ -299,7 +300,9 @@ const Swap: React.FC = () => {
             Deadline: <b>{deadline}</b> <br />
             Multihops: <b>{JSON.stringify(multihops)}</b> <br />
             Expert mode: <b>{JSON.stringify(expert)}</b>
+          <Schedule/>
           </div>
+
         </div>
         <div className={'row'} style={{ width: '300px' }}>
           <div className={'column'} style={{ height: '500px' }}>

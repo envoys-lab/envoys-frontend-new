@@ -19,7 +19,7 @@ type InfoArrayList = {
     name: string[];
     img: string[];
     percent: string;
-    earned: number;
+    earned: number | string;
     APR: string;
     liqudity: string;
     multiplier: string;

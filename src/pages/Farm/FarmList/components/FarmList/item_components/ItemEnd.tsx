@@ -8,7 +8,7 @@ const ItemEndStyle = styled.div`
 `;
 
 type ItemEndType = {
-  earned: number;
+  earned: number | string;
   APR: string;
   liqudity: string;
   multiplier: string;
