@@ -53,6 +53,27 @@ const StyledPopUpCard = styled.div<PopUpProps>`
     font-weight: 500;
     margin: 0 50px 80px;
   }
+  @media (max-width: 760px) {
+    .walletsWrapper {
+      grid-gap: 50px;
+    }
+  }
+  @media (max-width: 560px) {
+    .walletsWrapper {
+      grid-gap: 30px;
+      margin: 0 30px 50px;
+    }
+  }
+  @media (max-width: 460px) {
+    .walletsWrapper {
+      grid-template-columns: 1fr;
+      grid-gap: 20px;
+      margin: 0 30px 30px;
+    }
+    .row {
+      margin-bottom: 30px;
+    }
+  }
 `;
 
 const ExitBtn = styled.div<PopUpProps>`

@@ -16,7 +16,7 @@ export const InputWrapper = styled.div<Props>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
   .search_menu {
     display: flex;
     align-items: center;
