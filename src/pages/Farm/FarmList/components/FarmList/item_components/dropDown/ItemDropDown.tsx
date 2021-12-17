@@ -14,7 +14,7 @@ const ItemEndStyle = styled.div<ShowProps>`
   padding: ${(props) => (props.show ? '30px 80px 36px 40px' : '0 80px 0 40px')};
   max-height: ${(props) => (props.show ? '380px' : '0')};
   overflow: hidden;
-  transition: all 0.2s ease-in;
+  transition: all 0.4s ease-in;
 `;
 
 type EarnedType = {
