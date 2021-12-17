@@ -15,7 +15,7 @@ type BorderS = {
 const ItemStartStyle = styled.div<BorderS>`
   cursor: pointer;
   position: relative;
-  padding: 10px 0;
+  padding: 10px 16px 10px 0px;
   transition: 0.3s;
   border-bottom: 1px solid ${(props) => (props.dropDown ? '#E5E5E5' : '#F9F9F9')};
 `;

@@ -8,7 +8,7 @@ type PropsDD = {
 };
 
 const ItemStyle = styled.li<PropsDD>`
-  padding: ${(props) => (props.dropdown ? '10px 14px 10px 10px' : '10px 14px 10px 0px')};
+  padding: 10px 14px 10px 14px;
   border-radius: 16px;
   transition: 0.3s;
   background: ${(props) => (props.dropdown ? '#F9F9F9' : '#fff')};
