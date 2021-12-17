@@ -6,7 +6,7 @@ const EarnedStyle = styled.div`
   align-self: flex-start;
 `;
 
-const EarnedTextStyle = styled.p`
+const EarnedTextStyle = styled.p<TextPos>`
   padding: 0;
   margin: 5px 0;
   font-family: Roboto;
@@ -18,6 +18,7 @@ const EarnedTextStyle = styled.p`
     font-family: Roboto;
     font-weight: 500;
     font-size: 12px;
+    align-self: ${props => props.pos === 'start'?'flex-start':'flex-end'};
   }
 `;
 
@@ -30,8 +31,13 @@ const Link = styled.a`
   text-decoration: none;
 `;
 
+type TextPos = {
+  pos?: string
+}
+
 type EarnedType = {
   earned: number | string;
+  pos: 'start' | 'end'
 };
 
 const Earned: React.FC<EarnedType> = (props) => {
@@ -41,7 +47,7 @@ const Earned: React.FC<EarnedType> = (props) => {
         <EarnedTextStyle>
           <Link href="#">ETH</Link> EARNED
         </EarnedTextStyle>
-        <EarnedTextStyle>{props.earned}</EarnedTextStyle>
+        <EarnedTextStyle pos={props.pos}>{props.earned}</EarnedTextStyle>
       </Flex>
     </EarnedStyle>
   );
