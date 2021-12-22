@@ -7,10 +7,11 @@ import StyledLogo from './StyledLogo';
 const StyledSideBar = styled.div`
   background: white;
   width: 240px;
-  height: 100%;
+  height: 100vh;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.06);
   // border-radius: 16px;
   text-align: center;
+  margin-right: 30px;
 `;
 
 const SideBarDesktop: React.FC = () => {

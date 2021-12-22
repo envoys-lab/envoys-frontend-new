@@ -13,7 +13,7 @@ const Header: FC<Props> = ({ active, setActive, activeSearchBtn, setActiveSearch
   const width = useScreenWidth();
 
   return (
-    <div style={{ height: '85px', padding: '21px', display: 'flex', alignItems: 'center' }}>
+    <div style={{ height: '85px', padding: '21px 0', display: 'flex', alignItems: 'center' }}>
       {width < 500 && (
         <div>
           <SideBarHiddenButton active={active} setActive={setActive}></SideBarHiddenButton>
