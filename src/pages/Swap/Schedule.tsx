@@ -114,9 +114,8 @@ const Schedule:React.FC = () => {
                   </defs>
                   <XAxis dataKey="name" />
                   <YAxis hide/>
-                  <CartesianGrid strokeDasharray="4"  horizontal={false} vertical={false}/>
+                  <Area name='что-то' dataKey="uv" stroke="#2261DA" fillOpacity={1} fill="url(#colorUv)" />
                   <Tooltip/>
-                  <Area name='что-то' type="monotone" dataKey="uv" stroke="#2261DA" fillOpacity={1} fill="url(#colorUv)" />
               </AreaChart>
               
           </ResponsiveContainer>
