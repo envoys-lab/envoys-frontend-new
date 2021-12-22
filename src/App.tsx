@@ -51,7 +51,7 @@ const App: React.FC = () => {
             <SideBar active={activeHiddenMenu} setActive={setActiveHiddenMenu} />
 
             <div
-              style={{ marginLeft: '2px', height: '100%', flex: '1 1 auto', flexWrap: 'nowrap' }}
+              style={{ height: '100%', flex: '1 1 auto', flexWrap: 'nowrap' }}
               onClick={() => {
                 setSort(false);
                 setActiveSearchBtn(0);
