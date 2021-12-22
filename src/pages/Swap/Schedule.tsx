@@ -9,7 +9,15 @@ const ChartWrap = styled.div`
 `
 
 
+const TimeTitle = styled.h3`
+  margin: 10px 0;
+  font-size: 30px;
+`
+
 const Schedule:React.FC = () => {
+    const [cTime, setCTime] = React.useState<string>('12pm')
+    const [cValue, setCValue] = React.useState<number>(123)
+
     const data = [
         {
           name: '12pm',
@@ -77,31 +85,42 @@ const Schedule:React.FC = () => {
           amt: 43,
         },
       ];
+
+
+    const mousePoshandler = (e) => {
+      /* setCTime(e.activeLabel)
+      setCValue(data[e.activeTooltipIndex].uv) */
+    }
+
     
     return (
-        <ResponsiveContainer width='100%' height={250}>
-            <AreaChart 
-                data={data} 
-                margin={{ top: 40, right: 0, left: 0, bottom: 0 }}>
-                <defs>
-                    <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#2261DA" stopOpacity={0.8}/>
-                    <stop offset="95%" stopColor="#2261DA" stopOpacity={0}/>
-                    </linearGradient>
-                    <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
-                    <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
-                    </linearGradient>
-                </defs>
-                <XAxis dataKey="name" />
-                <YAxis hide/>
-                <CartesianGrid strokeDasharray="4"  horizontal={false} vertical={false}/>
-                <Tooltip/>
-                <Area name='что-то' type="monotone" dataKey="uv" stroke="#2261DA" fillOpacity={1} fill="url(#colorUv)" />
-                <Area type="monotone" dataKey="pv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
-            </AreaChart>
-            
-        </ResponsiveContainer>
+        <ChartWrap>
+
+
+          <ResponsiveContainer width='100%' height={250}> 
+              <AreaChart 
+                onMouseMove={e => mousePoshandler(e)}
+                  data={data} 
+                  margin={{ top: 40, right: 0, left: 0, bottom: 0 }}>
+                  <defs>
+                      <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#2261DA" stopOpacity={0.8}/>
+                      <stop offset="95%" stopColor="#2261DA" stopOpacity={0}/>
+                      </linearGradient>
+                      <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#82ca9d" stopOpacity={0.8}/>
+                      <stop offset="95%" stopColor="#82ca9d" stopOpacity={0}/>
+                      </linearGradient>
+                  </defs>
+                  <XAxis dataKey="name" />
+                  <YAxis hide/>
+                  <CartesianGrid strokeDasharray="4"  horizontal={false} vertical={false}/>
+                  <Tooltip/>
+                  <Area name='что-то' type="monotone" dataKey="uv" stroke="#2261DA" fillOpacity={1} fill="url(#colorUv)" />
+              </AreaChart>
+              
+          </ResponsiveContainer>
+        </ChartWrap>
     )
 }
 
