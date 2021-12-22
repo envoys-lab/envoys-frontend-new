@@ -8,7 +8,7 @@ const ItemOpt = styled.ul`
 `;
 
 type ItemEndType = {
-  earned: number;
+  earned: number | string;
   APR: string;
   liqudity: string;
 };

@@ -42,7 +42,7 @@ type InfoArrayList = {
     name: string[];
     img: string[];
     percent: string;
-    earned: number;
+    earned: number | string;
     APR: string;
     liqudity: string;
     multiplier: string;
@@ -84,7 +84,7 @@ const ItemS: React.FC<InfoArrayList> = (props) => {
       </Flex>
       <ItemOptions earned={props.info.earned} APR={props.info.APR} liqudity={props.info.liqudity} />
       <Flex align="center" justify="space-between" margin="10px 0">
-        <Earned earned={props.info.earned} />
+        <Earned pos='start' earned={props.info.earned} />
         <IButton disabled={true} text="Harvest" margin="0" />
       </Flex>
       <NewBtn disabled={false} text="Start Farming" margin="0" onClick={() => props.setOpenWalletsPopUp(true)} />
