@@ -85,6 +85,7 @@
     "react-transition-group": "^4.4.1",
     "react-window": "^1.8.6",
     "recharts": "^2.1.8",
+    "redux-devtools-extension": "^2.13.9",
     "redux-localstorage-simple": "^2.4.1",
     "remark-gfm": "^1.0.0",
     "slate-react": "^0.71.0",

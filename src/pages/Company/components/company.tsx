@@ -12,6 +12,8 @@ const CompanyWrapper = styled.div`
   background: white;
   margin: 0 auto;
   position: relative;
+  border-radius: 14px;
+  box-shadow: 0px 10px 20px rgb(0 0 0 / 6%);
 `;
 
 const CompanyTitle = styled.h2`

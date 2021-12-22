@@ -12,7 +12,7 @@ interface Props {
 
 export const StyledFarmFlex1 = styled.div<Props>`
   background-color: #fff;
-  width: 96%;
+  max-width: 960px;
   padding: 10px 15px;
   margin: 0 auto;
   border-radius: 28px;
