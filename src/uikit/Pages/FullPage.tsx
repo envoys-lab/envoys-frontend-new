@@ -2,8 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledFullPageWrapper = styled.div`
-  width: 100%;
-  padding: 21px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 0;
+  .title {
+    color: #0f2b46;
+    font-size: 16px;
+    font-weight: 500;
+  }
 `;
 
 const StyledFullPage = styled.div`
